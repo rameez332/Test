@@ -96,7 +96,10 @@ public class CommanTab  {
             MyLogger.log.info("Getting Cart Count");
             return commanTabUiObjects.cart_count().getText();
         }catch (NoSuchElementException e){
+            System.out.println("The Cart Count is: 0");
             throw new AssertionError("Cant get Cart Count, element absent or blocked");
+
+
         }
     }
 
@@ -106,7 +109,9 @@ public class CommanTab  {
             MyLogger.log.info("Getting Wishlist Count");
             return commanTabUiObjects.wishlist_count().getText();
         }catch (NoSuchElementException e){
-            throw new AssertionError("Cant get Wishlist Count, element absent or blocked");
+           System.out.println("The Wishlist Count is: 0");
+            throw new NoSuchElementException("The Wishlist Count is: 0");
+           //throw new AssertionError("Cant get Wishlist Count, element absent or blocked");
         }
     }
     public void setSearch(String value){

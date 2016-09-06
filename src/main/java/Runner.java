@@ -2,11 +2,14 @@ import api.android.Android;
 import api.apps.fabfurnish.FabFurnish;
 import api.apps.speedtest.home.Home;
 import core.MyLogger;
+import core.UiSelector;
 import core.managers.DriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Level;
 import org.junit.runner.JUnitCore;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.SystemClock;
 import tests.TestPrimer;
 
 import java.net.MalformedURLException;
@@ -22,7 +25,7 @@ public class Runner {
         AndroidDriver driver;
         MyLogger.log.setLevel(Level.INFO);
 
-         //   DriverManager.createDriver();
+         //  DriverManager.createDriver();
            /* MyLogger.log.info("Creating driver caps for device: "+1235cc57);
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("deviceName", deviceID);
@@ -38,13 +41,23 @@ public class Runner {
             cap.setCapability("appActivity", Android.app.fabfurnish.activityID());
 
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),cap);
-           // driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-        fabFurnish.open();
-        fabFurnish.commanTab.tapCart();
-        System.out.print("The Wishlist Count is: "+fabFurnish.commanTab.getWishlishtCount());
-        System.out.print("The Cart Count is: "+fabFurnish.commanTab.getCartCount());
-           // JUnitCore.runClasses(TestPrimer.class);
-            driver.quit();
+
+       // fabFurnish.open();
+        driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+        driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.fabfurnish.android:id/cart\")").click();
+
+
+        Android.driver= driver;
+        /*fabFurnish.commanTab.tapCart();*/
+        System.out.println("The Wishlist Count is: "+fabFurnish.commanTab.getWishlishtCount());
+        try {
+            System.out.println("The Cart Count is: " + fabFurnish.commanTab.getCartCount());
+        }
+        catch(NoSuchElementException e){
+            throw new AssertionError("The Cart Count is: 0");
+        }// JUnitCore.runClasses(TestPrimer.class);
+
+        driver.quit();
 
         /*finally {
             DriverManager.killDriver();

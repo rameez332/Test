@@ -35,6 +35,7 @@ public class CommanTabUiObjects {
         return cart_count;
     }
     public UiObject wishlist_count(){
+
         if(wishlist_count == null) wishlist_count = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/shortlist_tv").makeUiObject();
         return wishlist_count;
     }
