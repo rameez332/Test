@@ -3,15 +3,12 @@ package api.apps.fabfurnish.cart;
 import api.android.Android;
 import core.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
-
 /**
  * Created by Rameez on 8/31/2016.
  */
 public class Cart {
 
     public CartUiObjects cartuiobjects =new CartUiObjects();
-
-
 
     public String getProductName(){
 
@@ -97,7 +94,15 @@ public class Cart {
             throw new AssertionError("Cant get Shipping Days Text, element absent or blocked");
         }
     }
+    public String getChildCount(){
 
+        try{
+            MyLogger.log.info("Getting Child Count of Remove");
+            return cartuiobjects.remove().getChildCount();
+        }catch (NoSuchElementException e){
+            throw new AssertionError("Cant get Child Count of Remove, element absent or blocked");
+        }
+    }
 }
 
 

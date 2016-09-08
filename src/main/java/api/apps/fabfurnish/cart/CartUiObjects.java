@@ -3,6 +3,9 @@ package api.apps.fabfurnish.cart;
 import api.android.Android;
 import core.UiObject;
 import core.UiSelector;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Rameez on 8/31/2016.
@@ -43,7 +46,7 @@ public class CartUiObjects {
         return delivered_days;
     }
     public UiObject remove(){
-        if(remove == null) remove = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/remove").makeUiObject();
+       if(remove == null) remove = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/remove").makeUiObject();
         return remove;
     }
     public UiObject coupon_text(){

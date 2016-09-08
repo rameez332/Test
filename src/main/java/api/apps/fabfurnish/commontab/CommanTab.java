@@ -8,19 +8,20 @@ import api.apps.fabfurnish.menuright.MenuRight;
 import api.apps.fabfurnish.scanqr.ScanQr;
 import api.apps.fabfurnish.search.Search;
 import api.apps.fabfurnish.wishlist.Wishlist;
+import api.interfaces.Activity;
 import core.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
-
+import java.util.concurrent.TimeUnit;
 /**
  * Created by Rameez on 9/5/2016.
  */
-public class CommanTab  {
-    
-   public CommanTabUiObjects commanTabUiObjects=new CommanTabUiObjects();
+public class CommanTab implements Activity {
 
+   public CommanTabUiObjects commanTabUiObjects=new CommanTabUiObjects();
     public MenuRight tapMenuRight() {
 
         try{
+
             MyLogger.log.info("Tapping Right Menu");
             commanTabUiObjects.menuright().tap();
             return Android.app.fabfurnish.menuRight;
@@ -30,7 +31,6 @@ public class CommanTab  {
     }
 
     public Menu tapMenu(){
-
         try{
             MyLogger.log.info("Tapping Menu");
             commanTabUiObjects.menu().tap();
@@ -52,7 +52,8 @@ public class CommanTab  {
     }
     public Cart tapCart(){
 
-        try{
+
+       try{
             MyLogger.log.info("Tapping Cart");
             commanTabUiObjects.cart().tap();
             return Android.app.fabfurnish.cart;
@@ -92,14 +93,15 @@ public class CommanTab  {
     }
     public String getCartCount(){
 
-        try{
+
+       try{
             MyLogger.log.info("Getting Cart Count");
-            return commanTabUiObjects.cart_count().getText();
+           //Need to be updated
+           Android.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+           return commanTabUiObjects.cart_count().getText();
         }catch (NoSuchElementException e){
-            System.out.println("The Cart Count is: 0");
-            throw new AssertionError("Cant get Cart Count, element absent or blocked");
-
-
+           // throw new AssertionError("Cant get Cart Count, element absent or blocked");
+            return "0";
         }
     }
 
@@ -109,8 +111,7 @@ public class CommanTab  {
             MyLogger.log.info("Getting Wishlist Count");
             return commanTabUiObjects.wishlist_count().getText();
         }catch (NoSuchElementException e){
-           System.out.println("The Wishlist Count is: 0");
-            throw new NoSuchElementException("The Wishlist Count is: 0");
+            return "0";
            //throw new AssertionError("Cant get Wishlist Count, element absent or blocked");
         }
     }
@@ -140,6 +141,16 @@ public class CommanTab  {
             commanTabUiObjects.searchQrScan().tap();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Search Qr Scan, element absent or blocked");
+        }
+    }
+
+    public Object waitToLoad() {
+        try{
+            MyLogger.log.info("Waiting for CommanTab Activity");
+            commanTabUiObjects.cart().waitToAppear(10);
+            return Android.app.fabfurnish.commanTab;
+        }catch (AssertionError e){
+            throw new AssertionError("Comman Tab activity failed to load/open");
         }
     }
 }

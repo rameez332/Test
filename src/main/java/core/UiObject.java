@@ -5,6 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Rameez on 7/20/2016.
  */
@@ -115,7 +117,12 @@ public class UiObject {
         else element = Android.driver.findElementByAndroidUIAutomator(locator);
         return element.getAttribute("resourceId");
     }
-
+    public String getChildCount() {
+        WebElement element;
+        if (isXpath()) element = Android.driver.findElementByXPath(locator);
+        else element = Android.driver.findElementByAndroidUIAutomator(locator);
+        return element.getAttribute("childCount");
+    }
     public String getClassName(){
         WebElement element;
         if(isXpath()) element = Android.driver.findElementByXPath(locator);
@@ -175,4 +182,5 @@ public class UiObject {
         if(timer.expired(seconds) && exists()) throw new AssertionError("Element "+locator+" failed to disappear within "+seconds+" seconds");
         return this;
     }
+
 }

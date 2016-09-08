@@ -3,7 +3,10 @@ package api.apps.fabfurnish.commontab;
 import api.android.Android;
 import core.UiObject;
 import core.UiSelector;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import com.android.uiautomator.*;
 /**
  * Created by Rameez on 9/5/2016.
  */
@@ -25,15 +28,20 @@ public class CommanTabUiObjects {
     public UiObject cart(){
         if(cart == null) cart = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/cart").makeUiObject();
         return cart;
+
     }
     public UiObject wishlist(){
         if(wishlist == null) wishlist = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/shortlist").makeUiObject();
         return wishlist;
     }
+
     public UiObject cart_count(){
+
         if(cart_count == null) cart_count = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/cart_tv").makeUiObject();
         return cart_count;
+
     }
+
     public UiObject wishlist_count(){
 
         if(wishlist_count == null) wishlist_count = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/shortlist_tv").makeUiObject();
