@@ -1,6 +1,7 @@
 package api.apps.fabfurnish.cart;
 
 import api.android.Android;
+import com.android.uiautomator.core.UiCollection;
 import core.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 /**
@@ -8,13 +9,11 @@ import org.openqa.selenium.NoSuchElementException;
  */
 public class Cart {
 
-    public CartUiObjects cartuiobjects =new CartUiObjects();
-
+    public CartUiObjects uiObject =new CartUiObjects();
     public String getProductName(){
-
         try{
             MyLogger.log.info("Getting Product Name");
-            return cartuiobjects.product_name().getText();
+            return uiObject.product_name().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Product Name, element absent or blocked");
         }
@@ -24,7 +23,7 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Max Price");
-            return cartuiobjects.max_price().getText();
+            return uiObject.max_price().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Max Price, element absent or blocked");
         }
@@ -34,7 +33,7 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Qauntity of the Product");
-            return cartuiobjects.qty().getText();
+            return uiObject.qty().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Qauntity of the Product, element absent or blocked");
         }
@@ -43,16 +42,16 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Delivered Days");
-            return cartuiobjects.delivered_days().getText();
+            return uiObject.delivered_days().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Delivered Days, element absent or blocked");
         }
     }
-    public Cart tappingRemove(){
+    public Cart tapRemove(){
 
         try{
             MyLogger.log.info("Getting Discounted Price");
-            cartuiobjects.discounted_price().tap();
+            uiObject.discounted_price().tap();
             return Android.app.fabfurnish.cart;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Discounted Price, element absent or blocked");
@@ -62,7 +61,7 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Shipping Text");
-            return cartuiobjects.shipping().getText();
+            return uiObject.shipping().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Shipping Text, element absent or blocked");
         }
@@ -71,7 +70,7 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Subtotal Text");
-            return cartuiobjects.subtotal().getText();
+            return uiObject.subtotal().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Subtotal Texte, element absent or blocked");
         }
@@ -80,7 +79,7 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Final Order Text");
-            return cartuiobjects.final_order().getText();
+            return uiObject.final_order().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Final Order Text, element absent or blocked");
         }
@@ -89,16 +88,17 @@ public class Cart {
 
         try{
             MyLogger.log.info("Getting Shipping Days Text");
-            return cartuiobjects.shipping().getText();
+            return uiObject.shipping().getText();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Shipping Days Text, element absent or blocked");
         }
     }
+    //Not working
     public String getChildCount(){
 
         try{
             MyLogger.log.info("Getting Child Count of Remove");
-            return cartuiobjects.remove().getChildCount();
+            return uiObject.remove().getChildCount();
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Child Count of Remove, element absent or blocked");
         }

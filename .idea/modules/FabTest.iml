@@ -8,6 +8,16 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 24 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="classes" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-22/uiautomator.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-22/uiautomator.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

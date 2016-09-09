@@ -17,13 +17,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class CommanTab implements Activity {
 
-   public CommanTabUiObjects commanTabUiObjects=new CommanTabUiObjects();
+   public CommanTabUiObjects uiObject=new CommanTabUiObjects();
     public MenuRight tapMenuRight() {
 
         try{
 
             MyLogger.log.info("Tapping Right Menu");
-            commanTabUiObjects.menuright().tap();
+            uiObject.menuright().tap();
             return Android.app.fabfurnish.menuRight;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Right Menu, element absent or blocked");
@@ -33,7 +33,7 @@ public class CommanTab implements Activity {
     public Menu tapMenu(){
         try{
             MyLogger.log.info("Tapping Menu");
-            commanTabUiObjects.menu().tap();
+            uiObject.menu().tap();
             return Android.app.fabfurnish.menu;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Menu, element absent or blocked");
@@ -44,7 +44,7 @@ public class CommanTab implements Activity {
 
         try{
             MyLogger.log.info("Tapping Wishlist");
-            commanTabUiObjects.wishlist().tap();
+            uiObject.wishlist().tap();
             return Android.app.fabfurnish.wishlist;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Wishlist, element absent or blocked");
@@ -55,7 +55,7 @@ public class CommanTab implements Activity {
 
        try{
             MyLogger.log.info("Tapping Cart");
-            commanTabUiObjects.cart().tap();
+            uiObject.cart().tap();
             return Android.app.fabfurnish.cart;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Cart, element absent or blocked");
@@ -65,7 +65,7 @@ public class CommanTab implements Activity {
 
         try{
             MyLogger.log.info("Tapping Home");
-            commanTabUiObjects.home().tap();
+            uiObject.home().tap();
             return Android.app.fabfurnish.homepage;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Home, element absent or blocked");
@@ -75,7 +75,7 @@ public class CommanTab implements Activity {
 
         try{
             MyLogger.log.info("Tapping Search");
-            commanTabUiObjects.search().tap();
+            uiObject.search().tap();
             return Android.app.fabfurnish.search;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Search, element absent or blocked");
@@ -85,7 +85,7 @@ public class CommanTab implements Activity {
 
         try{
             MyLogger.log.info("Tapping ScanQr");
-            commanTabUiObjects.scanqr().tap();
+            uiObject.scanqr().tap();
             return Android.app.fabfurnish.scanQr;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Menu, element absent or blocked");
@@ -98,7 +98,7 @@ public class CommanTab implements Activity {
             MyLogger.log.info("Getting Cart Count");
            //Need to be updated
            Android.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-           return commanTabUiObjects.cart_count().getText();
+           return uiObject.cart_count().getText();
         }catch (NoSuchElementException e){
            // throw new AssertionError("Cant get Cart Count, element absent or blocked");
             return "0";
@@ -109,36 +109,40 @@ public class CommanTab implements Activity {
 
         try{
             MyLogger.log.info("Getting Wishlist Count");
-            return commanTabUiObjects.wishlist_count().getText();
+            return uiObject.wishlist_count().getText();
         }catch (NoSuchElementException e){
             return "0";
            //throw new AssertionError("Cant get Wishlist Count, element absent or blocked");
         }
     }
-    public void setSearch(String value){
+
+    //Need to do something about it
+    public Search setSearch(String value){
 
         try{
             MyLogger.log.info("Sending: "+value+" in search");
-            commanTabUiObjects.searchText().typeText(value);
+            uiObject.searchText().typeText(value);
+            return Android.app.fabfurnish.search;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Send: "+value+" in search, element absent or blocked");
         }
     }
-    public void tapCloseSearch(){
+    public CommanTab tapCloseSearch(){
 
         try{
             MyLogger.log.info("Tapping Close Search");
-            commanTabUiObjects.closeSearch().tap();
-
+            uiObject.closeSearch().tap();
+            return Android.app.fabfurnish.commanTab;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Close Search, element absent or blocked");
         }
     }
-    public void tapSearchQrScan(){
+    public CommanTab tapSearchQrScan(){
 
         try{
             MyLogger.log.info("Tapping Search Qr Scan");
-            commanTabUiObjects.searchQrScan().tap();
+            uiObject.searchQrScan().tap();
+            return Android.app.fabfurnish.commanTab;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant get Search Qr Scan, element absent or blocked");
         }
@@ -147,7 +151,7 @@ public class CommanTab implements Activity {
     public Object waitToLoad() {
         try{
             MyLogger.log.info("Waiting for CommanTab Activity");
-            commanTabUiObjects.cart().waitToAppear(10);
+            uiObject.cart().waitToAppear(10);
             return Android.app.fabfurnish.commanTab;
         }catch (AssertionError e){
             throw new AssertionError("Comman Tab activity failed to load/open");
