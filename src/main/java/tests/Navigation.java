@@ -70,13 +70,13 @@ public class Navigation extends TestManager {
        fabFurnish.commanTab.tapCart();
        System.out.print("The Wishlist Count is: "+fabFurnish.commanTab.getWishlishtCount());
        System.out.print("The Cart Count is: "+fabFurnish.commanTab.getCartCount());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.home().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.search().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.wishlist().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.cart().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.scanqr().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.menuright().exists());
-       Assert.assertTrue(fabFurnish.commanTab.commanTabUiObjects.menu().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.home().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.search().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.wishlist().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.cart().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.scanqr().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.menuright().exists());
+       Assert.assertTrue(fabFurnish.commanTab.uiObject.menu().exists());
 
        /*Assert.assertTrue(speedtest.results.uiObject.resultsLabel().exists());
        Assert.assertTrue(speedtest.results.uiObject.sortByDownload().exists());

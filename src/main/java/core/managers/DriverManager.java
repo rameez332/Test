@@ -34,13 +34,15 @@ public class DriverManager {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("deviceName", deviceID);
         caps.setCapability("platformName", "Android");
+        caps.setCapability("appPackage", Android.app.fabfurnish.packageID());
+        caps.setCapability("appActivity", Android.app.fabfurnish.activityID());
        // caps.setCapability("app", "C:/Program Files (x86)/Appium/node_modules/appium/build/unlock_apk/unlock_apk-debug.apk");
         return caps;
     }
 
     private static URL host(String deviceID) throws MalformedURLException {
         if(hosts == null){
-            hosts = new HashMap<String, URL>();
+            hosts = new HashMap<>();
             hosts.put("1235cc57", new URL("http://127.0.0.1:4723/wd/hub"));
         }return hosts.get(deviceID);
     }
@@ -65,7 +67,8 @@ public class DriverManager {
         for(String device : devices){
             try{
                 MyLogger.log.info("Trying to create new Driver for device: "+device);
-                Android.driver = new AndroidDriver(host(device), getCaps(device));
+                Android.driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), getCaps(device));
+                MyLogger.log.info("Working");
                 Android.adb = new ADB(device);
                 break;
             }catch (Exception e){
@@ -79,7 +82,7 @@ public class DriverManager {
         if(Android.driver != null){
             MyLogger.log.info("Killing Android Driver");
             Android.driver.quit();
-            Android.adb.uninstallApp(unlockPackage);
+            //Android.adb.uninstallApp(unlockPackage);
         }else MyLogger.log.info("Android Driver is not initialized, nothing to kill");
     }
    /* private static String nodeJS = System.getenv("APPIUM_HOME")+"/node.exe";

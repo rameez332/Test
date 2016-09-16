@@ -6,6 +6,7 @@ import api.apps.fabfurnish.catalog.Catalog;
 import api.apps.fabfurnish.checkout.Checkout;
 import api.apps.fabfurnish.commontab.CommanTab;
 import api.apps.fabfurnish.contactus.ContactUs;
+import api.apps.fabfurnish.filter.Filter;
 import api.apps.fabfurnish.homepage.Homepage;
 import api.apps.fabfurnish.login.Login;
 import api.apps.fabfurnish.menu.Menu;
@@ -18,12 +19,11 @@ import api.apps.fabfurnish.sale.Sale;
 import api.apps.fabfurnish.scanqr.ScanQr;
 import api.apps.fabfurnish.search.Search;
 import api.apps.fabfurnish.share.Share;
+import api.apps.fabfurnish.sort.Sort;
 import api.apps.fabfurnish.trackorder.TrackOrder;
 import api.apps.fabfurnish.tutorials.Tutorials;
 import api.apps.fabfurnish.wishlist.Wishlist;
 import api.interfaces.Application;
-import sun.rmi.runtime.Log;
-
 /**
  * Created by Rameez on 8/31/2016.
  */
@@ -32,7 +32,7 @@ public class FabFurnish implements Application {
     public Homepage homepage=new Homepage();
     public Menu menu=new Menu();
     public Wishlist wishlist=new Wishlist();
-    public Catalog catalog=new Catalog();
+    //public Catalog catalog=new Catalog();
     public Checkout checkout=new Checkout();
     public ContactUs contactUs=new ContactUs();
     public Login login=new Login();
@@ -48,6 +48,8 @@ public class FabFurnish implements Application {
     public TrackOrder trackOrder=new TrackOrder();
     public Tutorials tutorials=new Tutorials();
     public CommanTab commanTab=new CommanTab();
+    public Filter filter=new Filter();
+    public Sort sort=new Sort();
 
 
     public void forceStop() {

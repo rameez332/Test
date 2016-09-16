@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -154,7 +155,12 @@ public class UiObject {
         else  Android.driver.findElementByAndroidUIAutomator(locator).click();
         return this;
     }
-
+    public List<WebElement> multiple(){
+        List<WebElement> element;
+        if(isXpath()) element = Android.driver.findElementsByXPath(locator);
+        else element = Android.driver.findElementsByAndroidUIAutomator(locator);
+        return element;
+    }
    /* public UiObject scrollTo(){
         if(!locator.contains("text")) throw new RuntimeException("Scroll to method can only be used with text attributes and current locator: "+locator+" does not contain any text attributes!");
         if(isXpath()) Android.driver.scrollTo(locator.substring(locator.indexOf("@text=\""), locator.indexOf("\"]")).replace("@text=\"", ""));

@@ -1,7 +1,6 @@
 package api.apps.fabfurnish.cart;
 
 import api.android.Android;
-import com.android.uiautomator.core.UiCollection;
 import core.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 /**
