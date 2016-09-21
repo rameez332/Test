@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Runner {
     private static FabFurnish fabFurnish=new FabFurnish();
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
         MyLogger.log.setLevel(Level.INFO);
        /* try{
         DriverManager.createDriver();
@@ -45,8 +45,13 @@ public class Runner {
         Android.driver.findElementByName("Tables").click();
         Android.driver.findElementByName("Coffee Tables").click();
         MyLogger.log.info("Setting the Product Instance");
-        fabFurnish.catalog.tapView();
-        fabFurnish.catalog.getMultiple();
+
+        fabFurnish.catalog.getProductName();
+        fabFurnish.catalog.tapGridView();
+
+        fabFurnish.catalog.swipingVertical();
+
+        //fabFurnish.catalog.getMultiple();
        /* System.out.println(fabFurnish.catalog.getHeader());
         System.out.println(fabFurnish.catalog.getHeaderName());
         System.out.println(fabFurnish.catalog.getPdtCount());*/

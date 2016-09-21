@@ -2,10 +2,13 @@ package api.apps.fabfurnish.catalog;
 
 import api.android.Android;
 import api.apps.fabfurnish.filter.Filter;
+import api.apps.fabfurnish.pdp.Pdp;
 import api.apps.fabfurnish.sort.Sort;
 import api.apps.fabfurnish.wishlist.Wishlist;
 import core.MyLogger;
 import core.UiSelector;
+import org.apache.xpath.operations.And;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
@@ -30,7 +33,7 @@ public class Catalog {
         try {
             MyLogger.log.info("Getting Product Name");
             elements=uiObject.product_name().multiple();
-            System.out.println(elements.size());
+            this.size=elements.size();
             return elements.get(i).getText();
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant get Product Name, element absent or blocked");
@@ -42,6 +45,7 @@ public class Catalog {
         try {
             MyLogger.log.info("Getting Max Price");
             elements=uiObject.max_price().multiple();
+            this.size=elements.size();
             return elements.get(i).getText();
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant get Max Price, element absent or blocked");
@@ -62,6 +66,7 @@ public class Catalog {
         try {
             MyLogger.log.info("Getting Discounted Price");
             elements=uiObject.discounted_price().multiple();
+            this.size=elements.size();
             return elements.get(i).getText();
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant get Discounted Price, element absent or blocked");
@@ -72,6 +77,7 @@ public class Catalog {
         try {
             MyLogger.log.info("Getting Product Image");
             elements=uiObject.product_img().multiple();
+            this.size=elements.size();
             return elements.get(i).getText();
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant get Product Image, element absent or blocked");
@@ -82,7 +88,8 @@ public class Catalog {
 
         try {
             MyLogger.log.info("Tapping Shortlist");
-            uiObject.shortlist().tap();
+            elements=uiObject.shortlist().multiple();
+            elements.get(i).click();
             return Android.app.fabfurnish.wishlist;
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant Tap Shortlist, element absent or blocked");
@@ -111,42 +118,50 @@ public class Catalog {
         }
     }
 
-    public void tapProduct() {
+    public Pdp tapProduct() {
 
         try {
             MyLogger.log.info("Tapping Product");
             elements=uiObject.product_name().multiple();
             elements.get(i).click();
-            //return Android.app.fabfurnish.catalog;
+            return Android.app.fabfurnish.pdp;
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant Tap Product, element absent or blocked");
         }
     }
-    public Catalog tapView() {
+    public Catalog tapGridView() {
 
         try {
-            MyLogger.log.info("Tapping View");
-            uiObject.changeView().tap();
-            elements=uiObject.product_name().multiple();
-            int s=elements.size();
-            if(s!=1){
-                System.out.println("Its a Grid View");
-            }
-            else
-            {
-                System.out.println("Its a List View");
-            }
+            MyLogger.log.info("Tapping Grid View");
+
+            if(size==1) uiObject.changeView().tap();
+
+            else System.out.println("It is Already Grid View, No need to set, OtherWise set for ListView");
+
+            return Android.app.fabfurnish.catalog;
+        } catch (NoSuchElementException e) {
+            throw new AssertionError("Cant Tap Product, element absent or blocked");
+        }
+    }
+    public Catalog tapListView() {
+
+        try {
+            MyLogger.log.info("Tapping List View");
+
+            if(size!=1)uiObject.changeView().tap();
+            else System.out.println("It is Already List View, no need to set, otherwise set for GridView");
+
             return Android.app.fabfurnish.catalog;
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant Tap Product, element absent or blocked");
         }
     }
 
+
+
     public Catalog getMultiple(){
         headerCount=getPdtCount();
         headerName=getHeaderName();
-        elements=uiObject.product_name().multiple();
-        size=elements.size();
         MyLogger.log.info("Getting All products");
         for (int a=0;a<size;a++){
             this.i=a;
@@ -176,5 +191,51 @@ public class Catalog {
         }
         System.out.println("Product Count in String: "+result+" ,and in Int: "+Integer.parseInt(result));
         return Integer.parseInt(result);
+    }
+
+    public void swipingHorizontal() throws InterruptedException{
+        //Get the size of screen.
+        Dimension size = Android.driver.manage().window().getSize();
+        System.out.println(size);
+
+        //Find swipe start and end point from screen's with and height.
+        //Find startx point which is at right side of screen.
+        int startx = (int) (size.width * 0.70);
+        //Find endx point which is at left side of screen.
+        int endx = (int) (size.width * 0.30);
+        //Find vertical point where you wants to swipe. It is in middle of screen height.
+        int starty = size.height / 2;
+        System.out.println("startx = " + startx + " ,endx = " + endx + " , starty = " + starty);
+
+        //Swipe from Right to Left.
+        Android.driver.swipe(startx, starty, endx, starty, 3000);
+
+
+        //Swipe from Left to Right.
+        Android.driver.swipe(endx, starty, startx, starty, 3000);
+
+    }
+
+
+    public void swipingVertical()throws InterruptedException {
+        //Get the size of screen.
+        Dimension size = Android.driver.manage().window().getSize();
+        System.out.println(size);
+
+        //Find swipe start and end point from screen's with and height.
+        //Find starty point which is at bottom side of screen.
+        int starty = (int) (size.height * 0.80);
+        //Find endy point which is at top side of screen.
+        int endy = (int) (size.height * 0.20);
+        //Find horizontal point where you wants to swipe. It is in middle of screen width.
+        int startx = size.width / 2;
+        System.out.println("starty = " + starty + " ,endy = " + endy + " , startx = " + startx);
+
+        //Swipe from Bottom to Top.
+        Android.driver.swipe(startx, starty, startx, endy, 3000);
+        Thread.sleep(2000);
+        //Swipe from Top to Bottom.
+       /* Android.driver.swipe(startx, endy, startx, starty, 3000);
+        Thread.sleep(2000);*/
     }
 }
