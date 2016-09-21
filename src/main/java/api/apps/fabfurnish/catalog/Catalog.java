@@ -16,18 +16,21 @@ import java.util.Scanner;
  * Created by Rameez on 8/31/2016.
  */
 public class Catalog {
-    private int i=1;
-   public Catalog(String set){
+    private int i,size,count,headerCount;
+    private String headerName;
+    private List<WebElement> elements;
+   /*public Catalog(String set){
         Scanner in= new Scanner(System.in);
         System.out.println("Enter the Instance for the Product");
         this.i=in.nextInt();
-    }
+    }*/
     public CatalogUiObjects uiObject = new CatalogUiObjects();
-   private List<WebElement> elements;
+
     public String getProductName() {
         try {
             MyLogger.log.info("Getting Product Name");
             elements=uiObject.product_name().multiple();
+            System.out.println(elements.size());
             return elements.get(i).getText();
         } catch (NoSuchElementException e) {
             throw new AssertionError("Cant get Product Name, element absent or blocked");
@@ -119,6 +122,59 @@ public class Catalog {
             throw new AssertionError("Cant Tap Product, element absent or blocked");
         }
     }
+    public Catalog tapView() {
 
+        try {
+            MyLogger.log.info("Tapping View");
+            uiObject.changeView().tap();
+            elements=uiObject.product_name().multiple();
+            int s=elements.size();
+            if(s!=1){
+                System.out.println("Its a Grid View");
+            }
+            else
+            {
+                System.out.println("Its a List View");
+            }
+            return Android.app.fabfurnish.catalog;
+        } catch (NoSuchElementException e) {
+            throw new AssertionError("Cant Tap Product, element absent or blocked");
+        }
+    }
 
+    public Catalog getMultiple(){
+        headerCount=getPdtCount();
+        headerName=getHeaderName();
+        elements=uiObject.product_name().multiple();
+        size=elements.size();
+        MyLogger.log.info("Getting All products");
+        for (int a=0;a<size;a++){
+            this.i=a;
+            count++;
+            MyLogger.log.info("Product No.: "+count+" of Category: "+headerName+" ,with Count: "+headerCount+" ,Product Name: "+getProductName()+" ,Max Price: "+getMaxPrice()+" ,Discounted Price: "+getDiscountedPrice());
+
+            }
+        return this;
+    }
+    public String  getHeaderName(){
+        String h=getHeader();
+        int index=h.indexOf("(");
+        String sub=h.substring(0,index);
+        System.out.println(sub);
+        return sub;
+    }
+    public int getPdtCount(){
+        String h=getHeader();
+        int len=h.trim().length();
+        String result = "";
+
+        for (int i = 0; i < len; i++) {
+            Character character = h.charAt(i);
+            if (Character.isDigit(character)) {
+                result += character;
+            }
+        }
+        System.out.println("Product Count in String: "+result+" ,and in Int: "+Integer.parseInt(result));
+        return Integer.parseInt(result);
+    }
 }

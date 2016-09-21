@@ -32,7 +32,7 @@ public class FabFurnish implements Application {
     public Homepage homepage=new Homepage();
     public Menu menu=new Menu();
     public Wishlist wishlist=new Wishlist();
-    //public Catalog catalog=new Catalog();
+    public Catalog catalog=new Catalog();
     public Checkout checkout=new Checkout();
     public ContactUs contactUs=new ContactUs();
     public Login login=new Login();

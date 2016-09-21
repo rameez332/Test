@@ -18,7 +18,8 @@ public class CatalogUiObjects {
     discounted_price,
     color_family,
     imageViewonDisplay,
-    filter;
+    filter,
+    changeView;
 
     public UiObject header(){
         if(header == null) header = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/header").makeUiObject();
@@ -62,7 +63,10 @@ public class CatalogUiObjects {
         if(filter == null) filter = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/FloatingView").makeUiObject();
         return filter;
     }
-
+    public UiObject changeView(){
+        if(changeView == null) changeView = new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/img_layout_type").makeUiObject();
+        return changeView;
+    }
 
 
 }

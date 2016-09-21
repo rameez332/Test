@@ -6,7 +6,6 @@ import core.UiSelector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.android.uiautomator.*;
 /**
  * Created by Rameez on 9/5/2016.
  */

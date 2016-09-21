@@ -45,13 +45,11 @@ public class Runner {
         Android.driver.findElementByName("Tables").click();
         Android.driver.findElementByName("Coffee Tables").click();
         MyLogger.log.info("Setting the Product Instance");
-        Catalog catalog=new Catalog("set");
-        MyLogger.log.info("Getting Count");
-        MyLogger.log.info(catalog.getHeader());
-        MyLogger.log.info(catalog.getProductName());
-        MyLogger.log.info(catalog.getDiscountedPrice());
-        MyLogger.log.info(catalog.getMaxPrice());
-        catalog.tapProduct();
+        fabFurnish.catalog.tapView();
+        fabFurnish.catalog.getMultiple();
+       /* System.out.println(fabFurnish.catalog.getHeader());
+        System.out.println(fabFurnish.catalog.getHeaderName());
+        System.out.println(fabFurnish.catalog.getPdtCount());*/
         //driver.quit();
 
 
