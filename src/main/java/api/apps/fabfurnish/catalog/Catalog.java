@@ -7,11 +7,11 @@ import api.apps.fabfurnish.sort.Sort;
 import api.apps.fabfurnish.wishlist.Wishlist;
 import core.MyLogger;
 import core.UiSelector;
+import io.appium.java_client.android.AndroidElement;
 import org.apache.xpath.operations.And;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -189,14 +189,14 @@ public class Catalog {
                 result += character;
             }
         }
-        System.out.println("Product Count in String: "+result+" ,and in Int: "+Integer.parseInt(result));
+        //System.out.println("Product Count in String: "+result+" ,and in Int: "+Integer.parseInt(result));
         return Integer.parseInt(result);
     }
 
     public void swipingHorizontal() throws InterruptedException{
         //Get the size of screen.
         Dimension size = Android.driver.manage().window().getSize();
-        System.out.println(size);
+        //System.out.println(size);
 
         //Find swipe start and end point from screen's with and height.
         //Find startx point which is at right side of screen.
@@ -205,11 +205,10 @@ public class Catalog {
         int endx = (int) (size.width * 0.30);
         //Find vertical point where you wants to swipe. It is in middle of screen height.
         int starty = size.height / 2;
-        System.out.println("startx = " + startx + " ,endx = " + endx + " , starty = " + starty);
+       // System.out.println("startx = " + startx + " ,endx = " + endx + " , starty = " + starty);
 
         //Swipe from Right to Left.
         Android.driver.swipe(startx, starty, endx, starty, 3000);
-
 
         //Swipe from Left to Right.
         Android.driver.swipe(endx, starty, startx, starty, 3000);
@@ -243,6 +242,7 @@ public class Catalog {
 
     public Catalog gettingAllPdts()throws InterruptedException{
         int pdtcount=getPdtCount();
+
         for(int i=1;i<=pdtcount/4;i++)
         {
             getMultiple();
