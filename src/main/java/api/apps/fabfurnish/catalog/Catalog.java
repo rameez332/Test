@@ -224,9 +224,11 @@ public class Catalog {
 
         //Find swipe start and end point from screen's with and height.
         //Find starty point which is at bottom side of screen.
-        int starty = (int) (size.height * 0.80);
+        //int starty = (int) (size.height * 0.80);
+        int starty = (int) (size.height * 0.99);
         //Find endy point which is at top side of screen.
-        int endy = (int) (size.height * 0.20);
+        //int endy = (int) (size.height * 0.20);
+        int endy = (int) (size.height * 0.17);
         //Find horizontal point where you wants to swipe. It is in middle of screen width.
         int startx = size.width / 2;
         System.out.println("starty = " + starty + " ,endy = " + endy + " , startx = " + startx);
@@ -237,5 +239,17 @@ public class Catalog {
         //Swipe from Top to Bottom.
        /* Android.driver.swipe(startx, endy, startx, starty, 3000);
         Thread.sleep(2000);*/
+    }
+
+    public Catalog gettingAllPdts()throws InterruptedException{
+        int pdtcount=getPdtCount();
+        for(int i=1;i<=pdtcount/4;i++)
+        {
+            getMultiple();
+            swipingVertical();
+
+        }
+        System.out.println("All Products are Fetched");
+        return Android.app.fabfurnish.catalog;
     }
 }

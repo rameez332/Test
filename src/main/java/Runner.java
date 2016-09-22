@@ -5,6 +5,8 @@ import core.MyLogger;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Level;
 import org.apache.xpath.operations.And;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -16,8 +18,11 @@ import java.util.concurrent.TimeUnit;
  */
 public class Runner {
     private static FabFurnish fabFurnish=new FabFurnish();
+
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         MyLogger.log.setLevel(Level.INFO);
+
+
        /* try{
         DriverManager.createDriver();
         fabFurnish.open();
@@ -40,16 +45,15 @@ public class Runner {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Android.driver= driver;
         fabFurnish.commanTab.tapMenu();
-        Android.driver.findElementByName("FURNITURE").click();
-        Android.driver.findElementByName("Living Room Furniture").click();
-        Android.driver.findElementByName("Tables").click();
-        Android.driver.findElementByName("Coffee Tables").click();
-        MyLogger.log.info("Setting the Product Instance");
-
+        Android.driver.findElementByName("LUGGAGE & BAGS").click();
+        Android.driver.findElementByName("Backpacks").click();
+        Android.driver.findElementByName("School Bags").click();
+        //Android.driver.findElementByName("Coffee Tables").click();
+        //MyLogger.log.info("Setting the Product Instance");
         fabFurnish.catalog.getProductName();
         fabFurnish.catalog.tapGridView();
 
-        fabFurnish.catalog.swipingVertical();
+       fabFurnish.catalog.gettingAllPdts();
 
         //fabFurnish.catalog.getMultiple();
        /* System.out.println(fabFurnish.catalog.getHeader());
@@ -59,4 +63,5 @@ public class Runner {
 
 
     }
+
 }
