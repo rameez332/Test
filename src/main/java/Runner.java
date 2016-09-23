@@ -2,15 +2,19 @@ import api.android.Android;
 import api.apps.fabfurnish.FabFurnish;
 import api.apps.fabfurnish.catalog.Catalog;
 import core.MyLogger;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Level;
 import org.apache.xpath.operations.And;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.internal.TouchAction;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,7 +24,7 @@ public class Runner {
     private static FabFurnish fabFurnish=new FabFurnish();
 
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
-        MyLogger.log.setLevel(Level.INFO);
+        MyLogger.log.setLevel(Level.OFF);
 
 
        /* try{
@@ -52,14 +56,22 @@ public class Runner {
         //MyLogger.log.info("Setting the Product Instance");
         fabFurnish.catalog.getProductName();
         fabFurnish.catalog.tapGridView();
+        fabFurnish.catalog.setAllPdts();
+        //System.out.println("size: "+fabFurnish.catalog.getAllProductsName().size());
+    /*    System.out.println("All Products in the Category: "+fabFurnish.catalog.getHeaderName());
+      for(int i=0;i<fabFurnish.catalog.getAllProductsName().size();i++)
+      {
+          System.out.println(i+1+": Product's Name: "+fabFurnish.catalog.getAllProductsName().get(i)+
+                  " ,Max Price: "+fabFurnish.catalog.getAllMaxPrice().get(i)+
+                  " ,Discounted Price: "+fabFurnish.catalog.getAllDiscountedPrice().get(i));
 
-       fabFurnish.catalog.gettingAllPdts();
-
+      }*/
         //fabFurnish.catalog.getMultiple();
        /* System.out.println(fabFurnish.catalog.getHeader());
         System.out.println(fabFurnish.catalog.getHeaderName());
         System.out.println(fabFurnish.catalog.getPdtCount());*/
         //driver.quit();
+
 
 
     }

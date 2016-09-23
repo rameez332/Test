@@ -3,7 +3,9 @@ package api.apps.fabfurnish;
 import api.android.Android;
 import api.apps.fabfurnish.cart.Cart;
 import api.apps.fabfurnish.catalog.Catalog;
+import api.apps.fabfurnish.catalog.ProductsData;
 import api.apps.fabfurnish.checkout.Checkout;
+import api.apps.fabfurnish.commanactions.Swipe;
 import api.apps.fabfurnish.commontab.CommanTab;
 import api.apps.fabfurnish.contactus.ContactUs;
 import api.apps.fabfurnish.filter.Filter;
@@ -50,7 +52,7 @@ public class FabFurnish implements Application {
     public CommanTab commanTab=new CommanTab();
     public Filter filter=new Filter();
     public Sort sort=new Sort();
-
+    public Swipe swipe=new Swipe();
 
     public void forceStop() {
         Android.adb.forceStopApp(packageID());
