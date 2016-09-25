@@ -19,22 +19,48 @@ public class Swipe {
         // System.out.println("startx = " + startx + " ,endx = " + endx + " , starty = " + starty);
         Android.driver.swipe(startx, starty, endx, starty, 3000);
         Thread.sleep(2000);
-
     }
-
-
-    public void catalogSwipe()throws InterruptedException {
-
+    //Main Methods
+    public Swipe swipeDown(double sy,double ey)throws InterruptedException{
         Dimension size = Android.driver.manage().window().getSize();
-        //int starty = (int) (size.height * 0.80);
-        int starty = (int) (size.height * 0.99);
-        //int endy = (int) (size.height * 0.20);
-        int endy = (int) (size.height * 0.18);
+        int starty = (int) (size.height * sy);
+        int endy = (int) (size.height * ey);
         int startx = size.width / 2;
-        //System.out.println("starty = " + starty + " ,endy = " + endy + " , startx = " + startx);
         Android.driver.swipe(startx, starty, startx, endy, 3000);
         Thread.sleep(2000);
-        /* Android.driver.swipe(startx, endy, startx, starty, 3000);
-        Thread.sleep(2000);*/
+     return this;
+    }
+
+    public Swipe swipeDownIndex(int index, double sy,double ey)throws InterruptedException{
+        Dimension size = Android.driver.manage().window().getSize();
+        int starty = (int) (size.height * sy);
+        int endy = (int) (size.height * ey);
+        int startx = size.width / 2;
+        for(int i=0;i<index;i++) {
+            Android.driver.swipe(startx, starty, startx, endy, 3000);
+            Thread.sleep(2000);
+        }
+        return this;
+    }
+
+    public Swipe swipeUp(double sy,double ey)throws InterruptedException{
+        Dimension size = Android.driver.manage().window().getSize();
+        int starty = (int) (size.height * sy);
+        int endy = (int) (size.height * ey);
+        int startx = size.width / 2;
+        Android.driver.swipe(startx, endy, startx, starty, 3000);
+        Thread.sleep(2000);
+        return this;
+    }
+    public Swipe swipeUpIndex(int index, double sy,double ey)throws InterruptedException{
+        Dimension size = Android.driver.manage().window().getSize();
+        int starty = (int) (size.height * sy);
+        int endy = (int) (size.height * ey);
+        int startx = size.width / 2;
+        for (int i=0;i<index;i++) {
+            Android.driver.swipe(startx, endy, startx, starty, 3000);
+            Thread.sleep(2000);
+        }
+        return this;
     }
 }

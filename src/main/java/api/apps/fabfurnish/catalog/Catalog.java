@@ -20,18 +20,17 @@ public class Catalog {
     private String headerName;
     private List<WebElement> elements;
 
-    private int setSize() {
-        elements=uiObject.product_name().multiple();
+    public int getSize() {
+        elements=uiObject.product_name().waitToAppear(10).multiple();
         return elements.size();
     }
+
+    public void setIndex(int index){ this.i=index;}
+
     private String headerText(){
         return uiObject.header().getText();
     }
-    /*public Catalog(String set){
-            Scanner in= new Scanner(System.in);
-            System.out.println("Enter the Instance for the Product");
-            this.i=in.nextInt();
-        }*/
+
     public CatalogUiObjects uiObject = new CatalogUiObjects();
     public ProductsData productsData=new ProductsData();
     private Swipe swipe=new Swipe();
@@ -45,7 +44,7 @@ public class Catalog {
         }
     }
 
-    private String getMaxPrice() {
+    public String getMaxPrice() {
 
         try {
             MyLogger.log.info("Getting Max Price");
@@ -66,7 +65,7 @@ public class Catalog {
         }
     }
 
-    private String getDiscountedPrice() {
+    public String getDiscountedPrice() {
 
         try {
             MyLogger.log.info("Getting Discounted Price");
@@ -78,7 +77,7 @@ public class Catalog {
         }
     }
 
-    private String getProductImg() {
+    public String getProductImg() {
         try {
             MyLogger.log.info("Getting Product Image");
             elements=uiObject.product_img().multiple();
@@ -96,7 +95,8 @@ public class Catalog {
             elements=uiObject.shortlist().multiple();
             elements.get(i).click();
             return Android.app.fabfurnish.wishlist;
-        } catch (NoSuchElementException e) {
+        }
+        catch (NoSuchElementException e) {
             throw new AssertionError("Cant Tap Shortlist, element absent or blocked");
         }
     }
@@ -137,11 +137,9 @@ public class Catalog {
     public Catalog tapGridView() {
 
         try {
-            elements=uiObject.product_name().multiple();
-            int setsize=elements.size();
-            MyLogger.log.info("Tapping Grid View");
+           MyLogger.log.info("Tapping Grid View");
 
-            if(setsize==1) uiObject.changeView().tap();
+            if(getSize()==1) uiObject.changeView().tap();
 
             else System.out.println("It is Already Grid View, No need to set, OtherWise set for ListView");
 
@@ -153,11 +151,9 @@ public class Catalog {
     public Catalog tapListView() {
 
         try {
-            elements=uiObject.product_name().multiple();
-            int setsize=elements.size();
             MyLogger.log.info("Tapping List View");
 
-            if(setSize()!=1)uiObject.changeView().tap();
+            if(getSize()!=1)uiObject.changeView().tap();
             else System.out.println("It is Already List View, no need to set, otherwise set for GridView");
 
             return Android.app.fabfurnish.catalog;
@@ -166,19 +162,10 @@ public class Catalog {
         }
     }
 
-    private void setProducts(){
-       for (int a=0;a<setSize();a++){
-            this.i=a;
-            count++;
-            productsData.setProductData(getProductName(),getMaxPrice(),getDiscountedPrice());
-        }
-    }
-
     public String  getHeaderName(){
         String h=headerText();
         int index=h.indexOf("(");
-        String sub=h.substring(0,index);
-        return sub;
+        return h.substring(0,index);
     }
 
     public int getPdtCount(){
@@ -194,27 +181,34 @@ public class Catalog {
        return Integer.parseInt(result);
     }
 
-    public Catalog setAllPdts()throws InterruptedException{
-        int pdtcount=getPdtCount();
-
-        for(int i=1;i<=pdtcount/4;i++)
-        {
-            setProducts();
-            swipe.catalogSwipe();
+    /*    private void setProducts(){
+       for (int a=0;a<setSize();a++){
+            this.i=a;
+            count++;
+            productsData.setProductName(getProductName());
+            productsData.seDiscountedPrice(getDiscountedPrice());
+            productsData.setMaxPrice(getMaxPrice());
         }
-        System.out.println("All Products are Fetched");
-        return Android.app.fabfurnish.catalog;
+    }*/
+
+    //Main Setting Method
+ /*   public void setAllPdts()throws InterruptedException{
+        int pdtcount=getPdtCount();
+        if(setSize()!=0) {
+            for (int i = 1; i <= pdtcount / 4; i++) {
+                setProducts();
+                swipe.catalogSwipe();
+            }
+            System.out.println("All Products are Fetched");
+        }
+        else System.out.println("There is no Product");
     }
 
-    public ArrayList<String> getAllProductsName(){
-    return productsData.getProductName();
-    }
+    public ArrayList<String> getAllProductsName(){ return productsData.getProductName();}
 
-    public ArrayList<String> getAllMaxPrice(){
-        return productsData.getMaxPrice();
-    }
+    public ArrayList<String> getAllMaxPrice() { return productsData.getMaxPrice();}
 
     public ArrayList<String> getAllDiscountedPrice(){
         return productsData.getDiscountedPrice();
-    }
+    }*/
 }

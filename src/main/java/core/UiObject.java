@@ -188,5 +188,11 @@ public class UiObject {
         if(timer.expired(seconds) && exists()) throw new AssertionError("Element "+locator+" failed to disappear within "+seconds+" seconds");
         return this;
     }
-
+    public UiObject waitToAppearWithoutException(int seconds){
+        Timer timer = new Timer();
+        timer.start();
+        while(!timer.expired(seconds)) if(exists()) break;
+        if(timer.expired(seconds) && !exists()) System.out.println("Element Absent");
+        return this;
+    }
 }

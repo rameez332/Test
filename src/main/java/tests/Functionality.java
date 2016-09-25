@@ -1,7 +1,6 @@
 package tests;
 
 import api.android.Android;
-import api.apps.speedtest.Speedtest;
 import core.managers.TestManager;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,8 +10,8 @@ import org.junit.Test;
  */
 public class Functionality extends TestManager {
 
-    private static Speedtest speedtest = Android.app.speedtest;
 
+/*
     @Test
     public void test4(){
         testInfo.id("test4").suite("Functionality").name("Verify that you can Test Again");
@@ -28,5 +27,5 @@ public class Functionality extends TestManager {
         Assert.assertTrue(speedtest.home.uiObject.removeAdsButton().exists());
         Assert.assertTrue(speedtest.home.uiObject.testAgainButton().exists());
         Assert.assertTrue(speedtest.home.uiObject.logo().exists());
-    }
+    }*/
 }

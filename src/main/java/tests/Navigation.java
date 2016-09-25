@@ -2,7 +2,6 @@ package tests;
 
 import api.android.Android;
 import api.apps.fabfurnish.FabFurnish;
-import api.apps.speedtest.Speedtest;
 import core.managers.TestManager;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -66,7 +65,7 @@ public class Navigation extends TestManager {
 
    @Test
    public void test1(){
-       testInfo.id("test1").name("Verify that Everything is right");
+       testInfo.id("test1").name("Verifying that Everything is right");
        fabFurnish.commanTab.tapCart();
        System.out.print("The Wishlist Count is: "+fabFurnish.commanTab.getWishlishtCount());
        System.out.print("The Cart Count is: "+fabFurnish.commanTab.getCartCount());
@@ -78,13 +77,6 @@ public class Navigation extends TestManager {
        Assert.assertTrue(fabFurnish.commanTab.uiObject.menuright().exists());
        Assert.assertTrue(fabFurnish.commanTab.uiObject.menu().exists());
 
-       /*Assert.assertTrue(speedtest.results.uiObject.resultsLabel().exists());
-       Assert.assertTrue(speedtest.results.uiObject.sortByDownload().exists());
-       Assert.assertTrue(speedtest.results.uiObject.sortByPing().exists());
-       Assert.assertTrue(speedtest.results.uiObject.sortByTime().exists());
-       Assert.assertTrue(speedtest.results.uiObject.sortByType().exists());
-       Assert.assertTrue(speedtest.results.uiObject.sortByUpload().exists());
-       Assert.assertTrue(speedtest.results.uiObject.logo().exists());*/
-   }
+     }
 
 }

@@ -55,7 +55,7 @@ public class CommanTab implements Activity {
 
        try{
             MyLogger.log.info("Tapping Cart");
-            uiObject.cart().tap();
+            uiObject.cart().waitToAppear(20).tap();
             return Android.app.fabfurnish.cart;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Cart, element absent or blocked");
@@ -91,27 +91,27 @@ public class CommanTab implements Activity {
             throw new AssertionError("Cant Tap Menu, element absent or blocked");
         }
     }
-    public String getCartCount(){
+    public int getCartCount(){
 
 
        try{
             MyLogger.log.info("Getting Cart Count");
            //Need to be updated
            Android.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-           return uiObject.cart_count().getText();
+           return Integer.parseInt(uiObject.cart_count().getText());
         }catch (NoSuchElementException e){
            // throw new AssertionError("Cant get Cart Count, element absent or blocked");
-            return "0";
+            return 0;
         }
     }
 
-    public String getWishlishtCount(){
+    public int getWishlishtCount(){
 
         try{
             MyLogger.log.info("Getting Wishlist Count");
-            return uiObject.wishlist_count().getText();
+            return Integer.parseInt(uiObject.wishlist_count().getText());
         }catch (NoSuchElementException e){
-            return "0";
+            return 0;
            //throw new AssertionError("Cant get Wishlist Count, element absent or blocked");
         }
     }

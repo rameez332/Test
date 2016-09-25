@@ -16,7 +16,8 @@ public class MenuRightUiObjects {
             my_Order,
             tutorial,
             share_App,
-            contact_Us;
+            contact_Us,
+            location;
 
 
     public UiObject login() {
@@ -24,7 +25,11 @@ public class MenuRightUiObjects {
             login = new UiSelector().textContains("Login").makeUiObject();
         return login;
     }
-
+    public UiObject location() {
+        if (location == null)
+            location = new UiSelector().xPath("//android.widget.RelativeLayout[@index='1']").makeUiObject();
+        return location;
+    }
     public UiObject scan_QR_Code() {
         if (scan_QR_Code == null)
             scan_QR_Code = new UiSelector().textContains("Scan QR Code").makeUiObject();

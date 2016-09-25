@@ -6,62 +6,73 @@ import java.util.ArrayList;
  * Created by Rameez on 9/23/2016.
  */
 public class CartData {
-    String name;
+    private int flag;
     private ArrayList<String> pdtnamearray=new ArrayList<>();
     private ArrayList<String> maxpricearray=new ArrayList<>();
     private ArrayList<String> discountedpricearray=new ArrayList<>();
     private ArrayList<String> qtyarray=new ArrayList<>();
-    private ArrayList<Cart> removearray=new ArrayList<>();
+    private ArrayList<String> deliveredarray=new ArrayList<>();
 
-    public void setProductData(String pname, String mprice, String dprice, String qty, Cart remove)
+    void setProductName(String productName)
     {
-        if(!this.pdtnamearray.contains(pname)){
-            this.pdtnamearray.add(pname);
-            this.maxpricearray.add(mprice);
-            this.discountedpricearray.add(dprice);
-            this.qtyarray.add(qty);
-            this.removearray.add(remove);
-        }
-        else System.out.println("Product Already Exists in the Array");
+        flag=0;
+        if(!this.pdtnamearray.contains(productName))
+        this.pdtnamearray.add(productName);
+
+        else {System.out.println("Product already exists"); flag=1;}
     }
+    void setMaxPrice(String maxPrice)
+    {
+        if(flag==0)this.maxpricearray.add(maxPrice);
 
-    public ArrayList<String> getProductName() {
-
-        // if(!pdtnamearray.isEmpty())
-        return pdtnamearray;
-
-        // else throw new AssertionError("No products Found or Array is not Set");
+        else System.out.println("Product already exists");
 
     }
+    void seDiscountedPrice(String dprice)
+    {
+        if(flag==0) this.discountedpricearray.add(dprice);
 
-    public ArrayList<String > getMaxPrice() {
-        //if(!this.maxpricearray.isEmpty())
-        return maxpricearray;
+        else System.out.println("Product already exists");
+    }
+    void setQty(String qty)
+    {
+        if(flag==0)this.qtyarray.add(qty);
 
-        // else throw new AssertionError("No products Found or Array is not Set");
+        else System.out.println("Product already exists");
+    }
+    void setDeliveredDays(String deliveredDays)
+    {
+        if(flag==0) this.deliveredarray.add(deliveredDays);
 
+        else System.out.println("Product already exists");
+    }
+    ArrayList<String> getProductName() {
+        if(!pdtnamearray.isEmpty()) return pdtnamearray;
+
+        else throw new AssertionError("No Product Name Found");
+   }
+
+    ArrayList<String > getMaxPrice() {
+        if(!this.maxpricearray.isEmpty()) return maxpricearray;
+
+        else throw new AssertionError("No Max Price Found");
     }
 
-    public ArrayList<String> getDiscountedPrice() {
-        //if(!this.discountedpricearray.isEmpty())
-        return discountedpricearray;
+    ArrayList<String> getDiscountedPrice() {
+        if(!this.discountedpricearray.isEmpty()) return discountedpricearray;
 
-        //else throw new AssertionError("No products Found or Array is not Set");
-
+        else throw new AssertionError("No Discounted Price Found");
     }
-    public ArrayList<String> getQty() {
-        //if(!this.discountedpricearray.isEmpty())
-        return qtyarray;
+    ArrayList<String> getQty() {
+        if(!this.discountedpricearray.isEmpty()) return qtyarray;
 
-        //else throw new AssertionError("No products Found or Array is not Set");
-
-    } public ArrayList<Cart> getRemoveIndex() {
-        //if(!this.discountedpricearray.isEmpty())
-        return removearray;
-
-        //else throw new AssertionError("No products Found or Array is not Set");
-
+        else throw new AssertionError("No Quantity Found");
     }
 
+    ArrayList<String> getDeliveredDays() {
+        if(!this.discountedpricearray.isEmpty()) return deliveredarray;
+
+        else throw new AssertionError("No Delivered Days Found");
+    }
 
 }

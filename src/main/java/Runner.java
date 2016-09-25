@@ -46,19 +46,22 @@ public class Runner {
         MyLogger.log.info("Creating driver 3");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),cap);
         MyLogger.log.info("Creating driver 4");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
         Android.driver= driver;
+        //driver.wait(10);
         fabFurnish.commanTab.tapMenu();
+        //fabFurnish.commanTab.tapCart();
+        //fabFurnish.cart.setAllProdcuts();
+        //System.out.println("Product Name Array size : "+fabFurnish.cart.getAllProductsname().size());
         Android.driver.findElementByName("LUGGAGE & BAGS").click();
         Android.driver.findElementByName("Backpacks").click();
         Android.driver.findElementByName("School Bags").click();
         //Android.driver.findElementByName("Coffee Tables").click();
         //MyLogger.log.info("Setting the Product Instance");
-        fabFurnish.catalog.getProductName();
         fabFurnish.catalog.tapGridView();
-        fabFurnish.catalog.setAllPdts();
+    /*    fabFurnish.catalog.setAllPdts();
         //System.out.println("size: "+fabFurnish.catalog.getAllProductsName().size());
-    /*    System.out.println("All Products in the Category: "+fabFurnish.catalog.getHeaderName());
+       System.out.println("All Products in the Category: "+fabFurnish.catalog.getHeaderName());
       for(int i=0;i<fabFurnish.catalog.getAllProductsName().size();i++)
       {
           System.out.println(i+1+": Product's Name: "+fabFurnish.catalog.getAllProductsName().get(i)+
