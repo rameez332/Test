@@ -16,8 +16,8 @@ public class MenuData {
     void setSubCatArray(){}
     void setTagArray(){}
 
-    ArrayList<String> getCatArray(){}
-    ArrayList<String> getCat1Array(){}
-    ArrayList<String> getSubCatArray(){}
-    ArrayList<String> getTagArray(){}
+    ArrayList<String> getCatArray(){return catArray;}
+    ArrayList<String> getCat1Array(){return cat1Array;}
+    ArrayList<String> getSubCatArray(){return subCatArray;}
+    ArrayList<String> getTagArray(){return tagArray;}
 }
