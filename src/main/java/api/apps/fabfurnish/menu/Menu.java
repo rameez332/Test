@@ -152,4 +152,14 @@ public class Menu {
             return null;
         }
     }
+    public List<WebElement> getTextViewElement(){
+        try{
+            MyLogger.log.info("Getting TextView Elements");
+            elements=uiObject.text_view().multiple();
+            return elements;
+        }catch (NoSuchElementException e){
+
+            throw new AssertionError("TextView is missing");
+        }
+    }
 }

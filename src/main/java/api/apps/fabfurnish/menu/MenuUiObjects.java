@@ -12,7 +12,8 @@ public class MenuUiObjects {
             cat_name,
             cat1_name,
             subcat_name,
-            tag_name;
+            tag_name,
+            text_view;
 
 
     public UiObject cat_name() {
@@ -35,5 +36,10 @@ public class MenuUiObjects {
         if (tag_name == null)
             tag_name = new UiSelector().resourceId(Android.app.fabfurnish.packageID() + ":id/tag_name").makeUiObject();
         return tag_name;
+    }
+    public UiObject text_view(){
+        if (text_view == null)
+            text_view = new UiSelector().className("android.widget.TextView").makeUiObject();
+        return text_view;
     }
 }

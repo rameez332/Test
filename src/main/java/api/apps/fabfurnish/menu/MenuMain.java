@@ -15,60 +15,67 @@ import java.util.Random;
  * Created by Rameez on 9/25/2016.
  */
 public class MenuMain {
-    private ArrayList<Integer> index;
-    private int setIndex, ind;
+    private int index,size;
     private List<WebElement> cat, subCat, cat1, tag;
     private String cat_name, subcat_name, tag_name, cat1_name;
     private ArrayList<String> categories = new ArrayList<>();
     private ArrayList<String> subArray = new ArrayList<>();
     private ArrayList<String> tag1Array = new ArrayList<>();
     private ArrayList<String> tag2Array = new ArrayList<>();
+    private ArrayList<String> catArray=new ArrayList<>();
     public Menu menu = new Menu();
     public MenuUiObjects uiObject = new MenuUiObjects();
     private MenuData menuData = new MenuData();
     private Swipe swipe = new Swipe();
     double starty = .97, endy = .8;
 
-    public void random() throws InterruptedException {
-     /*   cat=uiObject.cat_name().multiple();
-        ind=randomAll(cat.size()-1);
-        subCat=uiObject.subcat_name().multiple();
-        tag=uiObject.tag_name().multiple();
-        if (menu.cat_name().contains("FABDESIGNS")&&menu.cat_name().contains("NEW")) {
-            MyLogger.log.info("It's on the: "+cat.get(ind)+" ,I am Working on it");
-            random();
-        }
-        this.categories.add(cat.get(ind).getText());
-        cat.get(ind).click();
-        //setting SubCategory Array
-        do {
-            menuData.setSubCatArray();
-            //
-            swipe.swipeDown(starty,endy);
+    public void productiveRandom(String current,String next) throws InterruptedException{
 
-        }while (cat.get(ind+1).isDisplayed());
-
-        index.add(randomAll(menuData.getSubCatArray().size()-1));
-        subcat_name=menuData.getSubCatArray().get(index.get(1));
-        this.categories.add(subcat_name);
-        while (!(new UiSelector().textContains(subcat_name).makeUiObject().exists()))
-        {
-            swipe.swipeUp(starty,endy);
-        }
-        for(int i=0;i<menu.getSubCatNameSize();i++) {
-            if(subCat.get(i).getText().contains(subcat_name))
+        if(new UiSelector().text(current).makeUiObject().exists()){
+            cat=menu.getTextViewElement();
+            size=cat.size();
+            for(int i=0;i<size;i++)
             {
-                setIndex=i;
+                if(cat.get(i).getText().contains(current))
+                {index=i;break;}
             }
+            for(int i=index;i<size;i++)
+            {
+
+                catArray.add(cat.get(i).getText());
+            }
+
+
+
+
+
+
+
+            do {
+                cat=menu.getTextViewElement();
+                for (int i = 0; i < cat.size(); i++) {
+                    if (!(cat.get(i).getText()).equals(next)||i!=0)
+                        catArray.add(cat.get(i).getText());
+                    else break;
+                }
+                if (!(new UiSelector().text(next).makeUiObject().exists()))
+                    swipe.swipeDown(starty, endy);
+            } while (!(new UiSelector().text(next).makeUiObject().exists()));
+            ind = randomAll(catArray.size() - 1);
+            this.categories.add(catArray.get(ind));
+            while (!(new UiSelector().text(catArray.get(ind)).makeUiObject().exists())) ;
+            {
+                swipe.swipeUp(starty, endy);
+            }
+            MyLogger.log.info("Tapping : "+cat.get(ind).getText());
+            current=catArray.get(ind);
+            next=catArray.get(ind+1);
+            new UiSelector().text(catArray.get(ind)).makeUiObject().tap();
         }
-        menu.setIndex(setIndex);
-        menu.tapSubcat_name();
-        //Tapping done on SubCategory
 
-       do{
 
-        }while (subCat.get(setIndex+1).isDisplayed());*/
-
+    }
+    /*public void random() throws InterruptedException {
         //For Main Category L1
         cat = menu.getCatNameElement();
 
@@ -159,7 +166,7 @@ public class MenuMain {
 
     }
 
-    /* public void randomSimple(){
+    *//* public void randomSimple(){
 
          ind=randomAll(menu.getCatNameSize()-1);
          menu.setIndex(ind);
@@ -195,7 +202,7 @@ public class MenuMain {
                  new UiSelector().text(tag2Array.get(ind)).makeUiObject().tap();
              }
          }
-     }*/
+     }*//*
     public ArrayList<String> categories(){
         if (!categories.isEmpty())return categories;
         else throw new AssertionError("No category was get");
@@ -376,6 +383,6 @@ public class MenuMain {
                 } else MyLogger.log.info("It does not contains the L4 Category");
             } else MyLogger.log.info("It does not contains the L3 Category");
         }
-    }
+    }*/
 }
 
