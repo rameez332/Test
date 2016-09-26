@@ -112,4 +112,44 @@ public class Menu {
             throw new AssertionError("Cant tap Tag Name Category, element absent or blocked");
         }
     }
+    public List<WebElement> getCatNameElement(){
+        try{
+            MyLogger.log.info("Tapping Cat Name Category");
+            elements=uiObject.cat_name().multiple();
+            return elements;
+        }catch (NoSuchElementException e){
+            MyLogger.log.info("Cat Element is missing, returning Null");
+            return null;
+        }
+    }
+    public List<WebElement> getCat1NameElement(){
+        try{
+            MyLogger.log.info("Getting Cat1 Name Category Element");
+            elements=uiObject.cat1_name().multiple();
+            return elements;
+        }catch (NoSuchElementException e){
+            MyLogger.log.info("Cat1 Element is missing, returning Null");
+            return null;
+        }
+    }
+    public List<WebElement> getSubCatNameElement(){
+        try{
+            MyLogger.log.info("Getting Sub Cat Name Category Element");
+            elements=uiObject.subcat_name().multiple();
+            return elements;
+        }catch (NoSuchElementException e){
+            MyLogger.log.info("SubCat Element is missing, returning Null");
+            return null;
+        }
+    }
+    public List<WebElement> getTagNameElement(){
+        try{
+            MyLogger.log.info("Getting Tag Name Category Element");
+            elements=uiObject.tag_name().multiple();
+            return elements;
+        }catch (NoSuchElementException e){
+            MyLogger.log.info("Tag Element is missing, returning Null");
+            return null;
+        }
+    }
 }
