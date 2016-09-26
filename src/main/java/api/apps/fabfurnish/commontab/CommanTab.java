@@ -33,7 +33,7 @@ public class CommanTab implements Activity {
     public Menu tapMenu(){
         try{
             MyLogger.log.info("Tapping Menu");
-            uiObject.menu().tap();
+            uiObject.menu().waitToAppear(10).tap();
             return Android.app.fabfurnish.menu;
         }catch (NoSuchElementException e){
             throw new AssertionError("Cant Tap Menu, element absent or blocked");

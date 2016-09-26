@@ -114,8 +114,8 @@ public class Menu {
     }
     public List<WebElement> getCatNameElement(){
         try{
-            MyLogger.log.info("Tapping Cat Name Category");
-            elements=uiObject.cat_name().multiple();
+            MyLogger.log.info("Getting Cat Name Category Element");
+            elements=uiObject.cat_name().waitToAppearWithoutException(5).multiple();
             return elements;
         }catch (NoSuchElementException e){
             MyLogger.log.info("Cat Element is missing, returning Null");
@@ -125,7 +125,7 @@ public class Menu {
     public List<WebElement> getCat1NameElement(){
         try{
             MyLogger.log.info("Getting Cat1 Name Category Element");
-            elements=uiObject.cat1_name().multiple();
+            elements=uiObject.cat1_name().waitToAppearWithoutException(5).multiple();
             return elements;
         }catch (NoSuchElementException e){
             MyLogger.log.info("Cat1 Element is missing, returning Null");
@@ -135,7 +135,7 @@ public class Menu {
     public List<WebElement> getSubCatNameElement(){
         try{
             MyLogger.log.info("Getting Sub Cat Name Category Element");
-            elements=uiObject.subcat_name().multiple();
+            elements=uiObject.subcat_name().waitToAppearWithoutException(5).multiple();
             return elements;
         }catch (NoSuchElementException e){
             MyLogger.log.info("SubCat Element is missing, returning Null");

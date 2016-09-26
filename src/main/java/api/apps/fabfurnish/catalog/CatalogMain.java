@@ -1,6 +1,7 @@
 package api.apps.fabfurnish.catalog;
 
 import api.apps.fabfurnish.commanactions.Swipe;
+import core.MyLogger;
 import core.UiSelector;
 import org.openqa.selenium.WebElement;
 
@@ -21,13 +22,16 @@ public class CatalogMain {
     private ProductsData productsData=new ProductsData();
 
     public void random()throws InterruptedException{
-        count=catalog.getPdtCount();
         catalog.tapGridView();
+        count=catalog.getPdtCount();
         Random random=new Random();
         swipeIndex=random.nextInt(count/4);
         swipe.swipeDownIndex(swipeIndex,starty,endy);
         index=random.nextInt(catalog.getSize()-1);
         catalog.setIndex(index);
+        MyLogger.log.info("ProductName is: "+catalog.getProductName());
+        MyLogger.log.info("Max Price is: "+catalog.getMaxPrice());
+        MyLogger.log.info("Discounted Price is: "+catalog.getDiscountedPrice());
         this.pname=catalog.getProductName();
         this.mprice=catalog.getMaxPrice();
         this.dprice=catalog.getDiscountedPrice();

@@ -2,7 +2,9 @@ package api.apps.fabfurnish;
 
 import api.android.Android;
 import api.apps.fabfurnish.cart.Cart;
+import api.apps.fabfurnish.cart.CartMain;
 import api.apps.fabfurnish.catalog.Catalog;
+import api.apps.fabfurnish.catalog.CatalogMain;
 import api.apps.fabfurnish.catalog.ProductsData;
 import api.apps.fabfurnish.checkout.Checkout;
 import api.apps.fabfurnish.commanactions.Swipe;
@@ -12,6 +14,7 @@ import api.apps.fabfurnish.filter.Filter;
 import api.apps.fabfurnish.homepage.Homepage;
 import api.apps.fabfurnish.login.Login;
 import api.apps.fabfurnish.menu.Menu;
+import api.apps.fabfurnish.menu.MenuMain;
 import api.apps.fabfurnish.menuright.MenuRight;
 import api.apps.fabfurnish.myorder.MyOrder;
 import api.apps.fabfurnish.newarrivals.NewArrivals;
@@ -25,6 +28,7 @@ import api.apps.fabfurnish.sort.Sort;
 import api.apps.fabfurnish.trackorder.TrackOrder;
 import api.apps.fabfurnish.tutorials.Tutorials;
 import api.apps.fabfurnish.wishlist.Wishlist;
+import api.apps.fabfurnish.wishlist.WishlistMain;
 import api.interfaces.Application;
 /**
  * Created by Rameez on 8/31/2016.
@@ -53,6 +57,10 @@ public class FabFurnish implements Application {
     public Filter filter=new Filter();
     public Sort sort=new Sort();
     public Swipe swipe=new Swipe();
+    public MenuMain menuMain=new MenuMain();
+    public CartMain cartMain=new CartMain();
+    public CatalogMain catalogMain=new CatalogMain();
+    public WishlistMain wishlistMain=new WishlistMain();
 
     public void forceStop() {
         Android.adb.forceStopApp(packageID());

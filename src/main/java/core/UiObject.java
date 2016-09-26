@@ -192,7 +192,7 @@ public class UiObject {
         Timer timer = new Timer();
         timer.start();
         while(!timer.expired(seconds)) if(exists()) break;
-        if(timer.expired(seconds) && !exists()) System.out.println("Element Absent");
+        //if(timer.expired(seconds) && !exists()) System.out.println("Element Absent");
         return this;
     }
 }

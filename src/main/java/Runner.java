@@ -24,7 +24,7 @@ public class Runner {
     private static FabFurnish fabFurnish=new FabFurnish();
 
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
-        MyLogger.log.setLevel(Level.OFF);
+        MyLogger.log.setLevel(Level.INFO);
 
 
        /* try{
@@ -39,26 +39,32 @@ public class Runner {
         MyLogger.log.info("Creating driver caps for device: 1235cc57");
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("deviceName", "1235cc57");
-        MyLogger.log.info("Creating driver 1");
+
         cap.setCapability("platformName", "Android");
         cap.setCapability("appPackage", Android.app.fabfurnish.packageID());
         cap.setCapability("appActivity", Android.app.fabfurnish.activityID());
-        MyLogger.log.info("Creating driver 3");
+
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),cap);
-        MyLogger.log.info("Creating driver 4");
-        driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+
+        //driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
         Android.driver= driver;
         //driver.wait(10);
         fabFurnish.commanTab.tapMenu();
+        fabFurnish.menuMain.random();
+         //fabFurnish.menuMain.randomSimple();
+        /*Android.driver.findElementByName("LUGGAGE & BAGS").click();
+        Android.driver.findElementByName("Backpacks").click();
+        Android.driver.findElementByName("School Bags").click();*/
+        fabFurnish.catalogMain.random();
         //fabFurnish.commanTab.tapCart();
         //fabFurnish.cart.setAllProdcuts();
         //System.out.println("Product Name Array size : "+fabFurnish.cart.getAllProductsname().size());
-        Android.driver.findElementByName("LUGGAGE & BAGS").click();
+       /* Android.driver.findElementByName("LUGGAGE & BAGS").click();
         Android.driver.findElementByName("Backpacks").click();
-        Android.driver.findElementByName("School Bags").click();
+        Android.driver.findElementByName("School Bags").click();*/
         //Android.driver.findElementByName("Coffee Tables").click();
         //MyLogger.log.info("Setting the Product Instance");
-        fabFurnish.catalog.tapGridView();
+        //fabFurnish.catalog.tapGridView();
     /*    fabFurnish.catalog.setAllPdts();
         //System.out.println("size: "+fabFurnish.catalog.getAllProductsName().size());
        System.out.println("All Products in the Category: "+fabFurnish.catalog.getHeaderName());
