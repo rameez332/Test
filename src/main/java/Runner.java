@@ -50,7 +50,8 @@ public class Runner {
         Android.driver= driver;
         //driver.wait(10);
         fabFurnish.commanTab.tapMenu();
-        fabFurnish.menuMain.random();
+        fabFurnish.menuMain.productiveRandom("FABDESIGNS","SALE");
+        fabFurnish.menuMain.printBreadCrum();
          //fabFurnish.menuMain.randomSimple();
         /*Android.driver.findElementByName("LUGGAGE & BAGS").click();
         Android.driver.findElementByName("Backpacks").click();
@@ -81,8 +82,5 @@ public class Runner {
         System.out.println(fabFurnish.catalog.getPdtCount());*/
         //driver.quit();
 
-
-
     }
-
 }

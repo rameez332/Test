@@ -7,74 +7,79 @@ import core.UiSelector;
 import org.jcp.xml.dsig.internal.dom.DOMBase64Transform;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Rameez on 9/25/2016.
  */
 public class MenuMain {
     private int index,size;
-    private List<WebElement> cat, subCat, cat1, tag;
-    private String cat_name, subcat_name, tag_name, cat1_name;
+    private List<WebElement> cat;
+
     private ArrayList<String> categories = new ArrayList<>();
-    private ArrayList<String> subArray = new ArrayList<>();
-    private ArrayList<String> tag1Array = new ArrayList<>();
-    private ArrayList<String> tag2Array = new ArrayList<>();
-    private ArrayList<String> catArray=new ArrayList<>();
+
+
     public Menu menu = new Menu();
     public MenuUiObjects uiObject = new MenuUiObjects();
-    private MenuData menuData = new MenuData();
     private Swipe swipe = new Swipe();
     double starty = .97, endy = .8;
 
     public void productiveRandom(String current,String next) throws InterruptedException{
 
-        if(new UiSelector().text(current).makeUiObject().exists()){
-            cat=menu.getTextViewElement();
-            size=cat.size();
-            for(int i=0;i<size;i++)
-            {
-                if(cat.get(i).getText().contains(current))
-                {index=i;break;}
-            }
-            for(int i=index;i<size;i++)
-            {
-
-                catArray.add(cat.get(i).getText());
-            }
-
-
-
-
-
-
-
+        if(uiObject.cat_name().exists()||uiObject.subcat_name().exists()||uiObject.tag_name().exists()) {
+            ArrayList<String > catArray=new ArrayList<>();
+            Set<String > set=new LinkedHashSet<>();
             do {
-                cat=menu.getTextViewElement();
-                for (int i = 0; i < cat.size(); i++) {
-                    if (!(cat.get(i).getText()).equals(next)||i!=0)
-                        catArray.add(cat.get(i).getText());
-                    else break;
+                cat = menu.getTextViewElement();
+                size = cat.size();
+                MyLogger.log.info("Element Size: "+size);
+                for (WebElement element:cat) {
+                    set.add(element.getText());
                 }
-                if (!(new UiSelector().text(next).makeUiObject().exists()))
-                    swipe.swipeDown(starty, endy);
-            } while (!(new UiSelector().text(next).makeUiObject().exists()));
-            ind = randomAll(catArray.size() - 1);
-            this.categories.add(catArray.get(ind));
-            while (!(new UiSelector().text(catArray.get(ind)).makeUiObject().exists())) ;
-            {
-                swipe.swipeUp(starty, endy);
+                //This need to be checked
+                if(!new UiSelector().text(next).makeUiObject().exists())swipe.swipeDown(starty,endy);
+            }while (!new UiSelector().text(next).makeUiObject().exists());
+            MyLogger.log.info("ELements of Array");
+
+            ArrayList<String> tempArray=new ArrayList<>(set);
+
+            int cIndex=tempArray.indexOf(current);
+            int nIndex=tempArray.indexOf(next);
+            MyLogger.log.info("cIndex: "+cIndex+" ,nIndex: "+nIndex);
+            List<String> subList;
+            subList= tempArray.subList(cIndex, nIndex);
+            MyLogger.log.info("SubList Size: "+subList.size());
+            size=subList.size();
+
+                Random random=new Random();
+                index=random.nextInt(subList.size()-1);
+                MyLogger.log.info("Random No.: " + index);
+
+
+            current=subList.get(index);
+            next=subList.get(index+1);
+            MyLogger.log.info("Current: "+current+" ,Next: "+next);
+            while(!new UiSelector().text(subList.get(index)).makeUiObject().exists()){
+                swipe.swipeUp(starty,endy);
             }
-            MyLogger.log.info("Tapping : "+cat.get(ind).getText());
-            current=catArray.get(ind);
-            next=catArray.get(ind+1);
-            new UiSelector().text(catArray.get(ind)).makeUiObject().tap();
+            this.categories.add(subList.get(index));
+            new UiSelector().text(subList.get(index)).makeUiObject().tap();
+            productiveRandom(current,next);
         }
-
-
+        else MyLogger.log.info("Redirecting to the Catalog Page");
     }
+
+
+   public void printBreadCrum()
+   {
+       for(String str:categories){
+           if(str.equals(categories.get(categories.size()-1)))
+               System.out.print(str);
+           else
+           System.out.print(str+"->");
+
+       }
+   }
     /*public void random() throws InterruptedException {
         //For Main Category L1
         cat = menu.getCatNameElement();
