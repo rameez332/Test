@@ -50,7 +50,7 @@ public class Runner {
         Android.driver= driver;
         //driver.wait(10);
         fabFurnish.commanTab.tapMenu();
-        fabFurnish.menuMain.productiveRandom("FABDESIGNS","SALE");
+        fabFurnish.menuMain.productiveRandom("FURNITURE","SALE");
         fabFurnish.menuMain.printBreadCrum();
          //fabFurnish.menuMain.randomSimple();
         /*Android.driver.findElementByName("LUGGAGE & BAGS").click();

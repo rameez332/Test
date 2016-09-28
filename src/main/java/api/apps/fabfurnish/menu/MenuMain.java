@@ -6,6 +6,7 @@ import core.UiObject;
 import core.UiSelector;
 import org.jcp.xml.dsig.internal.dom.DOMBase64Transform;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.internal.Streams;
 
 import java.util.*;
 
@@ -26,28 +27,36 @@ public class MenuMain {
 
     public void productiveRandom(String current,String next) throws InterruptedException{
 
-        if(uiObject.cat_name().exists()||uiObject.subcat_name().exists()||uiObject.tag_name().exists()) {
+        if(uiObject.cat_name().waitToAppearWithoutException(5).exists()||uiObject.subcat_name().waitToAppearWithoutException(5).exists()||uiObject.tag_name().waitToAppearWithoutException(5).exists()) {
             ArrayList<String > catArray=new ArrayList<>();
-            Set<String > set=new LinkedHashSet<>();
-            do {
-                cat = menu.getTextViewElement();
-                size = cat.size();
-                MyLogger.log.info("Element Size: "+size);
-                for (WebElement element:cat) {
-                    set.add(element.getText());
+            Set<String> set=new LinkedHashSet<>();
+
+            for (WebElement element1:menu.getTextViewElement()) {
+                set.add(element1.getText());}
+            int s=0;
+                while (!new UiSelector().text(next).makeUiObject().exists());
+                {
+
+                 swipe.swipeDown(.97,.8);s++;
+                    for (WebElement element2:menu.getTextViewElement()) {
+                        set.add(element2.getText());}
+                    if(s==10)throw new AssertionError("Swipe method taking time");
                 }
-                //This need to be checked
-                if(!new UiSelector().text(next).makeUiObject().exists())swipe.swipeDown(starty,endy);
-            }while (!new UiSelector().text(next).makeUiObject().exists());
-            MyLogger.log.info("ELements of Array");
+            MyLogger.log.info("ELements of SET");
+            for(String str:set){MyLogger.log.info(str);}
+            //ArrayList<String> tempArray=new ArrayList<>(set);
 
-            ArrayList<String> tempArray=new ArrayList<>(set);
-
-            int cIndex=tempArray.indexOf(current);
-            int nIndex=tempArray.indexOf(next);
+            int i=0;
+            int cIndex=new ArrayList<String>(set).indexOf(current);
+            int nIndex=new ArrayList<String>(set).indexOf(next);
+            /*int cIndex=tempArray.indexOf(current)
+            int nIndex=tempArray.indexOf(next);*/
             MyLogger.log.info("cIndex: "+cIndex+" ,nIndex: "+nIndex);
             List<String> subList;
-            subList= tempArray.subList(cIndex, nIndex);
+            subList=new LinkedList<String>(set).subList(cIndex,nIndex);
+           // subList= tempArray.subList(cIndex, nIndex);
+            MyLogger.log.info("ELements of Sublist");
+            for(String str1:subList){MyLogger.log.info(str1);}
             MyLogger.log.info("SubList Size: "+subList.size());
             size=subList.size();
 
@@ -57,10 +66,12 @@ public class MenuMain {
 
 
             current=subList.get(index);
+            /*for(WebElement element:menu.getTextViewElement()){if(element.getText().equals(current))index=i;
+                i++;}*/
             next=subList.get(index+1);
             MyLogger.log.info("Current: "+current+" ,Next: "+next);
             while(!new UiSelector().text(subList.get(index)).makeUiObject().exists()){
-                swipe.swipeUp(starty,endy);
+                swipe.swipeUp(.97,.8);
             }
             this.categories.add(subList.get(index));
             new UiSelector().text(subList.get(index)).makeUiObject().tap();
