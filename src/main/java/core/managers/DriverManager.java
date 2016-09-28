@@ -43,17 +43,17 @@ public class DriverManager {
     private static URL host(String deviceID) throws MalformedURLException {
         if(hosts == null){
             hosts = new HashMap<>();
-            hosts.put("1235cc57", new URL("http://127.0.0.1:4723/wd/hub"));
+            hosts.put(deviceID, new URL("http://127.0.0.1:4723/wd/hub"));
         }return hosts.get(deviceID);
     }
 
     private static ArrayList<String> getAvailableDevices(){
         MyLogger.log.info("Checking for available devices");
-        ArrayList<String> avaiableDevices = new ArrayList<String>();
+        ArrayList<String> avaiableDevices = new ArrayList<>();
         ArrayList connectedDevices = ADB.getConnectedDevices();
         for(Object connectedDevice: connectedDevices){
             String device = connectedDevice.toString();
-            ArrayList apps = new ADB(device).getInstalledPackages();
+            //ArrayList apps = new ADB(device).getInstalledPackages();
            // if(!apps.contains(unlockPackage))
             avaiableDevices.add(device);
            // else MyLogger.log.info("Device: "+device+" has "+unlockPackage+" installed, assuming it is under testing");
@@ -68,7 +68,6 @@ public class DriverManager {
             try{
                 MyLogger.log.info("Trying to create new Driver for device: "+device);
                 Android.driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), getCaps(device));
-                MyLogger.log.info("Working");
                 Android.adb = new ADB(device);
                 break;
             }catch (Exception e){

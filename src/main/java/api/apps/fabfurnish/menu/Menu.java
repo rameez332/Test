@@ -154,7 +154,7 @@ public class Menu {
     }
     public List<WebElement> getTextViewElement(){
         try{
-            MyLogger.log.info("Getting TextView Elements");
+            //MyLogger.log.info("Getting TextView Elements");
             elements=uiObject.text_view().multiple();
             return elements;
         }catch (NoSuchElementException e){

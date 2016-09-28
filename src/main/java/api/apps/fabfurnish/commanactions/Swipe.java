@@ -28,7 +28,7 @@ public class Swipe {
         int startx = size.width / 2;
         Android.driver.swipe(startx, starty, startx, endy, 3000);
         Thread.sleep(2000);
-     return this;
+        return this;
     }
 
     public Swipe swipeDownIndex(int index, double sy,double ey)throws InterruptedException{

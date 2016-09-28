@@ -27,47 +27,32 @@ public class MenuMain {
 
     public void productiveRandom(String current,String next) throws InterruptedException{
 
-        if(uiObject.cat_name().waitToAppearWithoutException(5).exists()||uiObject.subcat_name().waitToAppearWithoutException(5).exists()||uiObject.tag_name().waitToAppearWithoutException(5).exists()) {
+        if(uiObject.cat_name().waitToAppearWithoutException(2).exists()||uiObject.subcat_name().waitToAppearWithoutException(2).exists()||uiObject.tag_name().waitToAppearWithoutException(2).exists()) {
             ArrayList<String > catArray=new ArrayList<>();
             Set<String> set=new LinkedHashSet<>();
-
             for (WebElement element1:menu.getTextViewElement()) {
                 set.add(element1.getText());}
             int s=0;
-                while (!new UiSelector().text(next).makeUiObject().exists());
+                while (!new UiSelector().text(next).makeUiObject().waitToAppearWithoutException(2).exists()&&s!=10)
                 {
-
                  swipe.swipeDown(.97,.8);s++;
                     for (WebElement element2:menu.getTextViewElement()) {
                         set.add(element2.getText());}
-                    if(s==10)throw new AssertionError("Swipe method taking time");
                 }
-            MyLogger.log.info("ELements of SET");
-            for(String str:set){MyLogger.log.info(str);}
-            //ArrayList<String> tempArray=new ArrayList<>(set);
-
             int i=0;
             int cIndex=new ArrayList<String>(set).indexOf(current);
             int nIndex=new ArrayList<String>(set).indexOf(next);
-            /*int cIndex=tempArray.indexOf(current)
-            int nIndex=tempArray.indexOf(next);*/
-            MyLogger.log.info("cIndex: "+cIndex+" ,nIndex: "+nIndex);
             List<String> subList;
-            subList=new LinkedList<String>(set).subList(cIndex,nIndex);
-           // subList= tempArray.subList(cIndex, nIndex);
-            MyLogger.log.info("ELements of Sublist");
-            for(String str1:subList){MyLogger.log.info(str1);}
-            MyLogger.log.info("SubList Size: "+subList.size());
+            subList=new LinkedList<String>(set).subList(cIndex+1,nIndex);
             size=subList.size();
-
-                Random random=new Random();
-                index=random.nextInt(subList.size()-1);
-                MyLogger.log.info("Random No.: " + index);
-
+                if(subList.size()!=1) {
+                    Random random = new Random();
+                    index = random.nextInt(subList.size() - 1);
+                    MyLogger.log.info("Random No.: " + index);
+                }
+                else index =0;
 
             current=subList.get(index);
-            /*for(WebElement element:menu.getTextViewElement()){if(element.getText().equals(current))index=i;
-                i++;}*/
             next=subList.get(index+1);
             MyLogger.log.info("Current: "+current+" ,Next: "+next);
             while(!new UiSelector().text(subList.get(index)).makeUiObject().exists()){
@@ -85,12 +70,55 @@ public class MenuMain {
    {
        for(String str:categories){
            if(str.equals(categories.get(categories.size()-1)))
-               System.out.print(str);
+               System.out.println(str);
            else
-           System.out.print(str+"->");
+           System.out.print(str+"-> ");
 
        }
    }
+
+/*    public void randomSimple(){
+        ArrayList<String> tagArray=new ArrayList<>();
+        Random random =new Random();
+        index=random.nextInt(menu.getCatNameSize()-1);
+        menu.setIndex(index);
+        if (menu.cat_name().contains("FABDESIGNS")&&menu.cat_name().contains("NEW")) {
+            MyLogger.log.info("It's on the: "+cat.get(index)+" ,I am Working on it");
+            randomSimple();
+        }
+        this.categories.add(menu.cat_name());
+        menu.tapCat_name();
+        //SubCategories
+        index=random.nextInt(menu.getSubCatNameSize()-1);
+        menu.setIndex(index);
+        this.categories.add(menu.subcat_name());
+        menu.tapSubcat_name();
+        //Tag Categories1 Level 1
+        if(!uiObject.tag_name().waitToAppear(5).exists()) {MyLogger.log.info("It does Not Contains any Tag Name Level 1");}
+        else {
+            index = random.nextInt(menu.getTagNameSize() - 1);
+            menu.setIndex(index);
+            this.categories.add(menu.tag_name());
+            //Tag Categories Level 2
+            if (!uiObject.tag_name().waitToAppear(5).exists()) {MyLogger.log.info("It does Not Contains any Tag Name Level 2");
+            }
+            else {
+
+                for (int i = 1; i < tag.size(); i++) {
+                    if (!(tag.get(i).getText()).equals(tag1Array.get(ind + 1)))
+                        tag2Array.add(tag.get(i).getText());
+                    else break;
+                }
+                index=random.nextInt(tag2Array.size()-1);
+                this.categories.add(tag2Array.get(index));
+                new UiSelector().text(tag2Array.get(index)).makeUiObject().tap();
+            }
+        }
+    }*/
+    public ArrayList<String> categories(){
+        if (!categories.isEmpty())return categories;
+        else throw new AssertionError("No category was get");
+    }
     /*public void random() throws InterruptedException {
         //For Main Category L1
         cat = menu.getCatNameElement();

@@ -22,20 +22,23 @@ public class CatalogMain {
     private ProductsData productsData=new ProductsData();
 
     public void random()throws InterruptedException{
-        catalog.tapGridView();
-        count=catalog.getPdtCount();
-        Random random=new Random();
-        swipeIndex=random.nextInt(count/4);
-        swipe.swipeDownIndex(swipeIndex,starty,endy);
-        index=random.nextInt(catalog.getSize()-1);
-        catalog.setIndex(index);
-        MyLogger.log.info("ProductName is: "+catalog.getProductName());
-        MyLogger.log.info("Max Price is: "+catalog.getMaxPrice());
-        MyLogger.log.info("Discounted Price is: "+catalog.getDiscountedPrice());
-        this.pname=catalog.getProductName();
-        this.mprice=catalog.getMaxPrice();
-        this.dprice=catalog.getDiscountedPrice();
-        catalog.tapProduct();
+        if(uiObject.product_name().waitToAppearWithoutException(5).exists()) {
+            catalog.tapGridView();
+            count = catalog.getPdtCount();
+            Random random = new Random();
+            swipeIndex = random.nextInt(count / 4);
+            swipe.swipeDownIndex(swipeIndex, starty, endy);
+            index = random.nextInt(catalog.getSize() - 1);
+            catalog.setIndex(index);
+            MyLogger.log.info("ProductName is: " + catalog.getProductName());
+            MyLogger.log.info("Max Price is: " + catalog.getMaxPrice());
+            MyLogger.log.info("Discounted Price is: " + catalog.getDiscountedPrice());
+            this.pname = catalog.getProductName();
+            this.mprice = catalog.getMaxPrice();
+            this.dprice = catalog.getDiscountedPrice();
+            catalog.tapProduct();
+        }
+        else throw new AssertionError("No Element Found");
 
     }
 
