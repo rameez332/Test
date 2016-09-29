@@ -39,7 +39,6 @@ public class CatalogMain {
             catalog.tapProduct();
         }
         else throw new AssertionError("No Element Found");
-
     }
 
 
