@@ -12,12 +12,15 @@ public class HomepageUiObjects {
             optionImage,
             indicator;
 
-    public UiObject optionImage(){
-        if(optionImage==null)optionImage=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"option_image").makeUiObject();
+    public UiObject optionImage() {
+        if (optionImage == null)
+            optionImage = new UiSelector().resourceId(Android.app.fabfurnish.packageID() + ":id/option_image").makeUiObject();
         return optionImage;
     }
-    public UiObject indicator(){
-        if(indicator==null)indicator=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"indicator").makeUiObject();
+
+    public UiObject indicator() {
+        if (indicator == null)
+            indicator = new UiSelector().resourceId(Android.app.fabfurnish.packageID() + ":id/indicator").makeUiObject();
         return indicator;
     }
 }

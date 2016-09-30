@@ -18,29 +18,29 @@ public class CurratorDetailUiObjects {
             tap_left;
 
     public UiObject designerName(){
-        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"tvDesgnerName").makeUiObject();
+        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/tvDesgnerName").makeUiObject();
         return designerName;
     }
 
     public UiObject designerDetails(){
-        if(designerDetails==null) designerDetails=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"detail").makeUiObject();
+        if(designerDetails==null) designerDetails=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/detail").makeUiObject();
         return designerDetails;
     }
 
     public UiObject share(){
-        if(share==null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"imgViewShare").makeUiObject();
+        if(share==null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/imgViewShare").makeUiObject();
         return share;
     }
     public UiObject expand_collapse(){
-        if(expand_collapse==null) expand_collapse=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"expand_collapse").makeUiObject();
+        if(expand_collapse==null) expand_collapse=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/expand_collapse").makeUiObject();
         return expand_collapse;
     }
     public UiObject tap_right(){
-        if(tap_right==null) tap_right=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"right_r").makeUiObject();
+        if(tap_right==null) tap_right=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/right_r").makeUiObject();
         return tap_right;
     }
     public UiObject tap_left(){
-        if(tap_left==null) tap_left=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"left_r").makeUiObject();
+        if(tap_left==null) tap_left=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/left_r").makeUiObject();
         return tap_left;
     }
 }

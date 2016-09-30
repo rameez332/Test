@@ -19,34 +19,33 @@ public class IdeaDetailsUiObjects {
 
 
     public UiObject designerName(){
-        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/designer_name").makeUiObject();
         return designerName;
     }
     public UiObject ideabookPin(){
-        if(ideabookPin==null) ideabookPin=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(ideabookPin==null) ideabookPin=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/fabidea_imgView").makeUiObject();
         return ideabookPin;
     }
     public UiObject fabLike(){
-        if(fabLike==null) fabLike=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(fabLike==null) fabLike=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/fab_like").makeUiObject();
         return fabLike;
     }
     public UiObject fabLikeCount(){
-        if(fabLikeCount==null) fabLikeCount=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(fabLikeCount==null) fabLikeCount=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/fab_like_text").makeUiObject();
         return fabLikeCount;
     }
     public UiObject shopTheLookText(){
-        if(shopTheLookText==null) shopTheLookText=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"tvShopTheLook").makeUiObject();
+        if(shopTheLookText==null) shopTheLookText=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/tvShopTheLook").makeUiObject();
         return shopTheLookText;
     }
 
     public UiObject shopTheLookInfo(){
-        if(shopTheLookInfo==null) shopTheLookInfo=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(shopTheLookInfo==null) shopTheLookInfo=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/imgViewInfoShopLook").makeUiObject();
         return shopTheLookInfo;
     }
 
     public UiObject shareShopTheLook(){
-        if(shareShopTheLook==null) shareShopTheLook=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"designer_name").makeUiObject();
+        if(shareShopTheLook==null) shareShopTheLook=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/imgViewShareShopLook").makeUiObject();
         return shareShopTheLook;
     }
-
 }

@@ -15,20 +15,17 @@ public class CurratorUiObjects {
             share;
 
     public UiObject designerName(){
-        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"tvDesgnerName").makeUiObject();
+        if(designerName==null) designerName=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/tvDesgnerName").makeUiObject();
         return designerName;
     }
 
     public UiObject designerDetails(){
-        if(designerDetails==null) designerDetails=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"detail").makeUiObject();
+        if(designerDetails==null) designerDetails=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/detail").makeUiObject();
         return designerDetails;
     }
 
     public UiObject share(){
-        if(share==null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+"imgViewShare").makeUiObject();
+        if(share==null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/imgViewShare").makeUiObject();
         return share;
     }
-
-
-
 }
