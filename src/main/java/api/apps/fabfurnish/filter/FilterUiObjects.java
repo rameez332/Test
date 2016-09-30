@@ -9,7 +9,7 @@ import core.UiSelector;
  */
 public class FilterUiObjects {
 
-    private UiObject
+    private static UiObject
     actionTitle,
     attributeName,
     attributes,

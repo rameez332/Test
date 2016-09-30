@@ -8,7 +8,7 @@ import core.UiSelector;
  * Created by Rameez on 9/29/2016.
  */
 public class IdeaDetailsUiObjects {
-    private UiObject
+    private static UiObject
             designerName,
             ideabookPin,
             fabLike,

@@ -9,7 +9,7 @@ import core.UiSelector;
  */
 public class CurratorUiObjects {
 
-    private UiObject
+    private static UiObject
             designerName,
             designerDetails,
             share;

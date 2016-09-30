@@ -9,7 +9,7 @@ import core.UiSelector;
  */
 public class FabIdeasUiObjects {
 
-    private UiObject
+    private static UiObject
             designerName,
             ideabookPin,
             fabLike,

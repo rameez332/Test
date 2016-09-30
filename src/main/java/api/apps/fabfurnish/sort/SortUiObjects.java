@@ -7,7 +7,7 @@ import core.UiSelector;
  * Created by Rameez on 9/14/2016.
  */
 public class SortUiObjects {
-    private UiObject
+    private static UiObject
             checkable,
             sortTitle;
 

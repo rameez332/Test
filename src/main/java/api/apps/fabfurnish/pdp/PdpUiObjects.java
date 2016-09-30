@@ -8,7 +8,8 @@ import core.UiSelector;
  * Created by Rameez on 8/31/2016.
  */
 public class PdpUiObjects {
-    private UiObject
+    private static
+    UiObject
             productName,
             ratingStar,
             totalReviews,
@@ -98,12 +99,12 @@ public class PdpUiObjects {
     }
 
     public UiObject wishlist(){
-       if(wishlist== null) wishlist=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/shortlist_txt_new").makeUiObject();
+        if(wishlist== null) wishlist=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/shortlist_icon_new").makeUiObject();
         return wishlist;
     }
 
     public UiObject share(){
-       if(share== null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/share_txt_new").makeUiObject();
+       if(share== null) share=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/share_icon_new").makeUiObject();
         return share;
     }
 
@@ -194,6 +195,4 @@ public class PdpUiObjects {
         if(moreIcon== null) moreIcon=new UiSelector().resourceId(Android.app.fabfurnish.packageID()+":id/more_icon").makeUiObject();
         return moreIcon;
     }
-
 }
-

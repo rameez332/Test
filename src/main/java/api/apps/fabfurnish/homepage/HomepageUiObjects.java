@@ -8,7 +8,7 @@ import core.UiSelector;
  * Created by Rameez on 8/31/2016.
  */
 public class HomepageUiObjects {
-    private UiObject
+    private static UiObject
             optionImage,
             indicator;
 
