@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbaf279c-6c54-4af1-99aa-a2079098ac6d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/commontab/ImageRec.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/FabFurnish.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/FabFurnish.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/curatordetail/CurratorDetailUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/curatordetail/CurratorDetailUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/currator/CurratorUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/currator/CurratorUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/fabideas/FabIdeasUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/fabideas/FabIdeasUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/filter/FilterUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/filter/FilterUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/homepage/HomepageUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/homepage/HomepageUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/ideadetails/IdeaDetailsUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/ideadetails/IdeaDetailsUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/sort/SortUiObjects.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/sort/SortUiObjects.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java" afterPath="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java" />
     </list>
     <ignored path="Test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,15 +30,13 @@
     <favorites_list name="Test" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Pdp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,11 +44,9 @@
       <file leaf-file-name="PdpUiObjects.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="146" column="111" selection-start-line="146" selection-start-column="111" selection-end-line="146" selection-end-column="111" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="3349">
+              <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,8 +54,8 @@
       <file leaf-file-name="PdpMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="319">
+              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,7 +66,7 @@
       <file leaf-file-name="MenuMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/menu/MenuMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-34">
               <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding />
             </state>
@@ -89,9 +76,13 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/menu/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="2567">
               <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#411#412#0" expanded="false" />
+                <element signature="e#439#440#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -474,6 +465,7 @@
         <option value="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/sort/SortUiObjects.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/commontab/ImageRec.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java" />
       </list>
     </option>
@@ -516,7 +508,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -713,14 +706,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
+              <option name="myItemId" value="pdp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1066,13 +1058,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/wishlist/Wishlist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/menuright/MenuRightUiObjects.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -1246,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1319,7 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1176">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,9 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1337,9 +1316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1347,9 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1357,9 +1330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1378,9 +1348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1388,9 +1355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1398,7 +1362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1406,50 +1369,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-680">
           <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/menu/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
+        <state relative-caret-position="2567">
           <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#411#412#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3349">
+          <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/commontab/ImageRec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/Pdp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/menu/MenuMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="-34">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpUiObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="146" column="111" selection-start-line="146" selection-start-column="111" selection-end-line="146" selection-end-column="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/apps/fabfurnish/pdp/PdpMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

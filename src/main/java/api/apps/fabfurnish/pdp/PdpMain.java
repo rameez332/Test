@@ -1,6 +1,7 @@
 package api.apps.fabfurnish.pdp;
 
 import api.apps.fabfurnish.commanactions.Swipe;
+import core.UiSelector;
 import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
@@ -19,21 +20,29 @@ public class PdpMain {
 
     public void getProductInfo() throws InterruptedException{
 
-
-        while (uiObject.recentlyViewed().exists()){
+        while (!(new UiSelector().text("SKU").makeUiObject().waitToAppearWithoutException(2).exists())){
             swipe.swipeDown(.9,.8);
         }
 
+        Set<String> textL = new LinkedHashSet<>();
+        Set<String> textR = new LinkedHashSet<>();
+        HashMap<String, String> productDetails = new HashMap<>();
+        do {
+            List<WebElement> textLeft = uiObject.textLeft().multiple();
 
-        HashMap<String,String> productDetails=new HashMap<>();
+            for (WebElement e : textLeft) {
+                textL.add(e.getText());
+            }
+            List<WebElement> more=uiObject.more().multiple();
+            while(more.size())
+            for(WebElement e:more){
+                e.click();
+                textR.add(uiObject.textRight().getText());
+            }
 
-        List<WebElement> elements=uiObject.textLeft().multiple();
-        Set<String> productData=new LinkedHashSet<>();
 
-        for(WebElement e:elements){
-            productData.add(e.getText());
-        }
-
+            swipe.swipeDown(.9,.8);
+        } while (!uiObject.recentlyViewed().waitToAppearWithoutException(2).exists());
 
     }
 }
