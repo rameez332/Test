@@ -1,4 +1,6 @@
 import api.apps.fabfurnish.FabFurnish;
+import api.apps.fabfurnish.catalog.CatalogUiObjects;
+import api.apps.fabfurnish.homepage.HomepageUiObjects;
 import core.MyLogger;
 import core.managers.DriverManager;
 import org.apache.log4j.Level;
@@ -17,10 +19,14 @@ public class Runner {
        try{
         DriverManager.createDriver();
         fabFurnish.open();
-           fabFurnish.commanTab.tapMenu();
+           /*fabFurnish.commanTab.tapMenu();
            fabFurnish.menuMain.productiveRandom("FABDESIGNS","SALE");
            fabFurnish.menuMain.printBreadCrum();
-           fabFurnish.catalogMain.random();
+           fabFurnish.catalogMain.random();*/
+           new HomepageUiObjects().optionImage().waitToAppearWithoutException(20).tap();
+           new CatalogUiObjects().product_name().waitToAppearWithoutException(20).tap();
+           fabFurnish.pdpMain.getProductInfo();
+           fabFurnish.pdpMain.printData();
         }
         finally {
             DriverManager.killDriver();

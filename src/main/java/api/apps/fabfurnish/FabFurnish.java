@@ -23,6 +23,7 @@ import api.apps.fabfurnish.menuright.MenuRight;
 import api.apps.fabfurnish.myorder.MyOrder;
 import api.apps.fabfurnish.newarrivals.NewArrivals;
 import api.apps.fabfurnish.pdp.Pdp;
+import api.apps.fabfurnish.pdp.PdpMain;
 import api.apps.fabfurnish.register.Register;
 import api.apps.fabfurnish.sale.Sale;
 import api.apps.fabfurnish.scanqr.ScanQr;
@@ -69,6 +70,7 @@ public class FabFurnish implements Application {
     public CurratorDetail curratorDetail=new CurratorDetail();
     public IdeaDetails ideaDetails=new IdeaDetails();
     public FabIdeas fabIdeas=new FabIdeas();
+    public PdpMain pdpMain=new PdpMain();
 
     public void forceStop() {
         Android.adb.forceStopApp(packageID());
