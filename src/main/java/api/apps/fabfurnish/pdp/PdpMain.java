@@ -24,29 +24,30 @@ public class PdpMain {
             swipe.swipeDown(.9,.6);
         }
 
-
-
         do {
             List<WebElement> textLeft = uiObject.textLeft().multiple();
             MyLogger.log.info("Getting text Left");
             for (WebElement e : textLeft) {
                 this.textL.add(e.getText());
             }
-            MyLogger.log.info("Getting Tapping More");
-            while (new UiSelector().text(" + ").makeUiObject().waitToAppearWithoutException(10).exists());
+
+            while (new UiSelector().text(" + ").makeUiObject().waitToAppearWithoutException(10).exists())
             {
                List<WebElement> e= new UiSelector().text(" + ").makeUiObject().multiple();
-                e.get(0).click();
+               e.get(0).click();
             }
-
+            while (!(new UiSelector().text(" + ").makeUiObject().waitToAppearWithoutException(2).exists())&&!uiObject.recentlyViewed().waitToAppearWithoutException(2).exists())
+            {
+                swipe.swipeDown(.9,.73);
+            }
             List<WebElement> textRight = uiObject.textRight().multiple();
             MyLogger.log.info("Getting text Right");
             for (WebElement e : textRight) {
                 this.textR.add(e.getText());
             }
 
-            swipe.swipeDown(.9,.72);
-        } while (!uiObject.recentlyViewed().waitToAppearWithoutException(2).exists()&&!(new UiSelector().text(" + ").makeUiObject().exists()));
+           // swipe.swipeDown(.9,.72);
+        } while (!uiObject.recentlyViewed().waitToAppearWithoutException(5).exists()||(new UiSelector().text(" + ").makeUiObject().exists()));
 
     }
 
@@ -54,13 +55,17 @@ public class PdpMain {
         MyLogger.log.info("Product Data");
         ArrayList<String> a1=new ArrayList<>(textL);
         ArrayList<String> a2=new ArrayList<>(textR);
-        for(int i=0;i<a1.size();i++){
+        /*for(int i=0;i<a1.size();i++){
             MyLogger.log.info(a1.get(i)+" : "+a2.get(i));
         }
-
-        MyLogger.log.info("Getting Set Data");
-        for(int i=0;i<textL.size();i++){
-            MyLogger.log.info(textL+" : "+textR);
+*/
+        MyLogger.log.info("Getting Set Left Data");
+        for(int i=0;i<a1.size();i++){
+            MyLogger.log.info(a1);
+        }
+        MyLogger.log.info("Getting Set Right Data");
+        for(int i=0;i<a2.size();i++){
+            MyLogger.log.info(a2);
         }
     }
 }
